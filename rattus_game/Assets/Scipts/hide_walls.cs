@@ -6,9 +6,9 @@ using UnityEngine;
 public class hide_walls : MonoBehaviour
 {
     List<GameObject> walls = new List<GameObject>();
-    GameObject diagCanvas, textBox;
-    TextMeshProUGUI diagText;
+    GameObject diagCanvas;
     int indexL = 1, indexR = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +16,6 @@ public class hide_walls : MonoBehaviour
         GameObject wallXPos = GameObject.Find("XPos");
         GameObject wallZNeg = GameObject.Find("ZNeg");
         GameObject wallZPos = GameObject.Find("ZPos");
-
-        diagText = gameObject.GetComponent("DialogText") as TextMeshProUGUI;
-
-        Debug.Log(diagText);
 
         walls.Add(wallXPos);
         walls.Add(wallZNeg);
@@ -42,7 +38,6 @@ public class hide_walls : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            Debug.Log(diagText.text);
             walls[indexL].SetActive(true);
             walls[indexR].SetActive(false);
             indexL = indexR;
