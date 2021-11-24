@@ -1335,7 +1335,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 9e7790d8396287a4f984bc6caa033656, type: 3}
   m_PrefabInstance: {fileID: 175776730}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> ea93c4d (Remove test spheres, comment in hide_walls.cs)
+=======
+>>>>>>> 8a2c3f3 (Rebase with main)
+>>>>>>> bf203bd (Rebase with main)
 --- !u!1001 &176146916
 PrefabInstance:
   m_ObjectHideFlags: 0

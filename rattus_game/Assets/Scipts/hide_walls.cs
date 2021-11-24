@@ -31,15 +31,22 @@ public class hide_walls : MonoBehaviour
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> ea93c4d (Remove test spheres, comment in hide_walls.cs)
 =======
 >>>>>>> cb33bf6 (rebase)
+=======
+>>>>>>> bf203bd (Rebase with main)
         //0-> XPos
 =======
         //0-> xNeg
 >>>>>>> cd53f00 (good rotation object)
+=======
+
+        //0-> XPos
+>>>>>>> 8a2c3f3 (Rebase with main)
         //1-> ZNeg
         //2-> XNeg
         //3-> ZPos
