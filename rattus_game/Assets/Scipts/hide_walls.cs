@@ -29,7 +29,10 @@ public class hide_walls : MonoBehaviour
             wall.SetActive(true);
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> ea93c4d (Remove test spheres, comment in hide_walls.cs)
         //0-> XPos
         //1-> ZNeg
         //2-> XNeg
