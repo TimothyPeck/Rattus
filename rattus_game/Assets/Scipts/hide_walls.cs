@@ -27,8 +27,10 @@ public class hide_walls : MonoBehaviour
             wall.SetActive(true);
         }
 
-        //0-> xPos
+        //0-> XPos
         //1-> ZNeg
+        //2-> XNeg
+        //3-> ZPos
         walls[indexL].SetActive(false);
         walls[indexR].SetActive(false);
     }
