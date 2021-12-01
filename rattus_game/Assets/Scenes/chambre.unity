@@ -1756,6 +1756,9 @@ Transform:
   m_PrefabInstance: {fileID: 945374799}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a8fc9b2 (rebase with main)
 --- !u!1 &1061149057
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,8 +1888,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 =======
 >>>>>>> ea93c4d (Remove test spheres, comment in hide_walls.cs)
+=======
+>>>>>>> a8fc9b2 (rebase with main)
 --- !u!1 &1092332531
 GameObject:
   m_ObjectHideFlags: 0
