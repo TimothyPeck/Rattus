@@ -29,7 +29,11 @@ public class hide_walls : MonoBehaviour
             wall.SetActive(true);
         }
 
+<<<<<<< HEAD
         //0-> XPos
+=======
+        //0-> xNeg
+>>>>>>> cd53f00 (good rotation object)
         //1-> ZNeg
         //2-> XNeg
         //3-> ZPos
