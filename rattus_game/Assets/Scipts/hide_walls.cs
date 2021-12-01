@@ -8,11 +8,12 @@ public class hide_walls : MonoBehaviour
     public GameObject btnLeft, btnRight;
     List<GameObject> walls = new List<GameObject>();
     GameObject diagCanvas;
-    int indexL = 1, indexR = 2;
+    int indexL = 1 , indexR = 2;
 
     // Start is called before the first frame update
     void Start()
     {
+       
         GameObject wallXNeg = GameObject.Find("XNeg");
         GameObject wallXPos = GameObject.Find("XPos");
         GameObject wallZNeg = GameObject.Find("ZNeg");
@@ -28,10 +29,11 @@ public class hide_walls : MonoBehaviour
             wall.SetActive(true);
         }
 
-        //0-> xPos
+        //0-> xNeg
         //1-> ZNeg
         walls[indexL].SetActive(false);
         walls[indexR].SetActive(false);
+
     }
 
     // Update is called once per frame

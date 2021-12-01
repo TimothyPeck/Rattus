@@ -479,6 +479,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mug
       objectReference: {fileID: 0}
+    - target: {fileID: 1508735698817094, guid: e654e87e122044a489128addf80b0613, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4380618352805604, guid: e654e87e122044a489128addf80b0613, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -554,9 +558,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 470928921}
     m_Modifications:
+    - target: {fileID: 1277500049906158, guid: 3904b9d628543824ab5d604bef929475, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1519960926157666, guid: 3904b9d628543824ab5d604bef929475, type: 3}
       propertyPath: m_Name
       value: Sofa
+      objectReference: {fileID: 0}
+    - target: {fileID: 1519960926157666, guid: 3904b9d628543824ab5d604bef929475, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1692540277480306, guid: 3904b9d628543824ab5d604bef929475, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4163053220528200, guid: 3904b9d628543824ab5d604bef929475, type: 3}
       propertyPath: m_RootOrder
@@ -850,6 +866,10 @@ PrefabInstance:
     - target: {fileID: 1619540670936502, guid: 73cbfd2f0f824ff4c85a12059bfddef5, type: 3}
       propertyPath: m_Name
       value: WindowXPos
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619540670936502, guid: 73cbfd2f0f824ff4c85a12059bfddef5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586134100759510, guid: 73cbfd2f0f824ff4c85a12059bfddef5, type: 3}
       propertyPath: m_RootOrder
@@ -1578,6 +1598,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TableWhite
       objectReference: {fileID: 0}
+    - target: {fileID: 1067061780115966, guid: 9e2aa9a3cd770304790380d81be38190, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4721447533995004, guid: 9e2aa9a3cd770304790380d81be38190, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1648,9 +1672,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872237080}
     m_Modifications:
+    - target: {fileID: 1062407804631384, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189824710729598, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1448292466349434, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
       propertyPath: m_Name
       value: MedRack_V2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448292466349434, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636211306317530, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337983583695168, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
       propertyPath: m_RootOrder
@@ -1997,7 +2037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1227736732}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 84.3, y: 0, z: 0}
+  m_LocalPosition: {x: 400, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1680483800}
@@ -2108,6 +2148,10 @@ PrefabInstance:
     - target: {fileID: 1769086508513630, guid: 8296ba5dc86a96b4aa243dbff2e08571, type: 3}
       propertyPath: m_Name
       value: Plate
+      objectReference: {fileID: 0}
+    - target: {fileID: 1769086508513630, guid: 8296ba5dc86a96b4aa243dbff2e08571, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4886217833757044, guid: 8296ba5dc86a96b4aa243dbff2e08571, type: 3}
       propertyPath: m_RootOrder
@@ -2248,13 +2292,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408524498}
-  m_LocalRotation: {x: 0.101905756, y: -0.8932361, z: 0.25646874, w: 0.35492006}
-  m_LocalPosition: {x: 22.4, y: 10.9, z: 16}
+  m_LocalRotation: {x: 0.11349457, y: -0.88434154, z: 0.2856346, w: 0.3513859}
+  m_LocalPosition: {x: 19.6, y: 10.9, z: 11.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 147.96, y: 43.34, z: 180}
+  m_LocalEulerAnglesHint: {x: 144.2, y: 43.34, z: 180}
 --- !u!1 &1522598735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2402,6 +2446,10 @@ PrefabInstance:
     - target: {fileID: 1550487739604554, guid: 68a49296450cc5745a78c3895333111e, type: 3}
       propertyPath: m_Name
       value: Lamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1550487739604554, guid: 68a49296450cc5745a78c3895333111e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4005733655707148, guid: 68a49296450cc5745a78c3895333111e, type: 3}
       propertyPath: m_RootOrder
@@ -2647,9 +2695,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872237080}
     m_Modifications:
+    - target: {fileID: 1062407804631384, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189824710729598, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1448292466349434, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
       propertyPath: m_Name
       value: MedRack_V2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448292466349434, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636211306317530, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337983583695168, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
       propertyPath: m_RootOrder
@@ -2738,7 +2802,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708579137}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -59.1, y: 0, z: 0}
+  m_LocalPosition: {x: -370.51, y: 0, z: -11.68}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 71783734}
@@ -2850,6 +2914,10 @@ PrefabInstance:
     - target: {fileID: 1359669688954358, guid: 2e679ac81ad6ebb499ab066d0d4ddb05, type: 3}
       propertyPath: m_Name
       value: Crutches
+      objectReference: {fileID: 0}
+    - target: {fileID: 1359669688954358, guid: 2e679ac81ad6ebb499ab066d0d4ddb05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4818302672216962, guid: 2e679ac81ad6ebb499ab066d0d4ddb05, type: 3}
       propertyPath: m_RootOrder
@@ -3066,9 +3134,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1092332532}
     m_Modifications:
+    - target: {fileID: 1085274250471148, guid: b95c20770a08b1549a9ba34c35f574e6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1119892339220620, guid: b95c20770a08b1549a9ba34c35f574e6, type: 3}
       propertyPath: m_Name
       value: Door_V1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119892339220620, guid: b95c20770a08b1549a9ba34c35f574e6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733732836752854, guid: b95c20770a08b1549a9ba34c35f574e6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4546697730940662, guid: b95c20770a08b1549a9ba34c35f574e6, type: 3}
       propertyPath: m_RootOrder
@@ -3185,6 +3265,10 @@ PrefabInstance:
     - target: {fileID: 1619540670936502, guid: 73cbfd2f0f824ff4c85a12059bfddef5, type: 3}
       propertyPath: m_Name
       value: WindowXNeg
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619540670936502, guid: 73cbfd2f0f824ff4c85a12059bfddef5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4586134100759510, guid: 73cbfd2f0f824ff4c85a12059bfddef5, type: 3}
       propertyPath: m_RootOrder
@@ -3351,9 +3435,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872237080}
     m_Modifications:
+    - target: {fileID: 1062407804631384, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1189824710729598, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1448292466349434, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
       propertyPath: m_Name
       value: MedRack_V2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1448292466349434, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636211306317530, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4337983583695168, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
       propertyPath: m_RootOrder
@@ -3429,6 +3529,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crutches (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1359669688954358, guid: 2e679ac81ad6ebb499ab066d0d4ddb05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4818302672216962, guid: 2e679ac81ad6ebb499ab066d0d4ddb05, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3502,6 +3606,10 @@ PrefabInstance:
     - target: {fileID: 1534614067781904, guid: 7867de6c5cb26a746bd4ffae43c821f9, type: 3}
       propertyPath: m_Name
       value: ChairWhite
+      objectReference: {fileID: 0}
+    - target: {fileID: 1534614067781904, guid: 7867de6c5cb26a746bd4ffae43c821f9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4606580117988524, guid: 7867de6c5cb26a746bd4ffae43c821f9, type: 3}
       propertyPath: m_RootOrder
