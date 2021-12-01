@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class hide_walls : MonoBehaviour
 {
+    public GameObject btnLeft, btnRight;
     List<GameObject> walls = new List<GameObject>();
     GameObject diagCanvas;
     int indexL = 1, indexR = 2;
@@ -36,6 +37,7 @@ public class hide_walls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             walls[indexL].SetActive(true);
@@ -55,5 +57,29 @@ public class hide_walls : MonoBehaviour
                 indexL = 3;
             walls[indexL].SetActive(false);
         }
+        */
+    }
+
+    public void buttonLeftClicked()
+    {
+        walls[indexR].SetActive(true);
+        walls[indexL].SetActive(false);
+        indexR = indexL;
+        indexL--;
+        if (indexL < 0)
+            indexL = 3;
+        walls[indexL].SetActive(false);
+    }
+
+    public void buttonRightClicked()
+    {
+
+        walls[indexL].SetActive(true);
+        walls[indexR].SetActive(false);
+        indexL = indexR;
+        indexR++;
+        if (indexR == 4)
+            indexR = 0;
+        walls[indexR].SetActive(false);
     }
 }

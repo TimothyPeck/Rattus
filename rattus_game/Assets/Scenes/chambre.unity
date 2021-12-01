@@ -777,7 +777,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441103893}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 680396210}
+        m_TargetAssemblyTypeName: RoomRotation, Assembly-CSharp
+        m_MethodName: buttonRightClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 680396215}
+        m_TargetAssemblyTypeName: hide_walls, Assembly-CSharp
+        m_MethodName: buttonRightClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &441103893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1353,6 +1377,7 @@ GameObject:
   - component: {fileID: 680396212}
   - component: {fileID: 680396211}
   - component: {fileID: 680396210}
+  - component: {fileID: 680396215}
   m_Layer: 0
   m_Name: AxeRotatation
   m_TagString: Untagged
@@ -1459,6 +1484,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680396215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680396209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52845020fb22411439724c08edc06502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  btnLeft: {fileID: 1797645499}
+  btnRight: {fileID: 441103890}
 --- !u!1001 &860775266
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2209,13 +2248,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408524498}
-  m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -22.09, y: 8.6, z: -29.05}
+  m_LocalRotation: {x: 0.101905756, y: -0.8932361, z: 0.25646874, w: 0.35492006}
+  m_LocalPosition: {x: 22.4, y: 10.9, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 147.96, y: 43.34, z: 180}
 --- !u!1 &1522598735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2718,7 +2757,6 @@ GameObject:
   - component: {fileID: 1718551737}
   - component: {fileID: 1718551736}
   - component: {fileID: 1718551735}
-  - component: {fileID: 1718551739}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -2802,18 +2840,6 @@ Transform:
   m_Father: {fileID: 575067185}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1718551739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1718551734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52845020fb22411439724c08edc06502, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1749615817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2970,7 +2996,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1797645502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 680396210}
+        m_TargetAssemblyTypeName: RoomRotation, Assembly-CSharp
+        m_MethodName: buttonLeftClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 680396215}
+        m_TargetAssemblyTypeName: hide_walls, Assembly-CSharp
+        m_MethodName: buttonLeftClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1797645502
 MonoBehaviour:
   m_ObjectHideFlags: 0
