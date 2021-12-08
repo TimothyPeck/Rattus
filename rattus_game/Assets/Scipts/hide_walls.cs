@@ -77,6 +77,9 @@ public class hide_walls : MonoBehaviour
     public void buttonLeftClicked()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> d20f69c (mettre au propre, changer btn)
         walls[indexL].SetActive(true);
         walls[indexR].SetActive(false);
         indexL = indexR;
@@ -90,8 +93,11 @@ public class hide_walls : MonoBehaviour
     public void buttonRightClicked()
     {
         
+<<<<<<< HEAD
 =======
 >>>>>>> f9ff39b (rebase)
+=======
+>>>>>>> d20f69c (mettre au propre, changer btn)
         walls[indexR].SetActive(true);
         walls[indexL].SetActive(false);
         indexR = indexL;
@@ -102,6 +108,7 @@ public class hide_walls : MonoBehaviour
 <<<<<<< HEAD
 =======
     }
+<<<<<<< HEAD
 
     public void buttonRightClicked()
     {
@@ -115,4 +122,6 @@ public class hide_walls : MonoBehaviour
         walls[indexR].SetActive(false);
 >>>>>>> f9ff39b (rebase)
     }
+=======
+>>>>>>> d20f69c (mettre au propre, changer btn)
 }
