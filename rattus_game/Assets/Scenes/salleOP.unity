@@ -4565,6 +4565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 965691382}
   - component: {fileID: 965691383}
+  - component: {fileID: 965691384}
   m_Layer: 0
   m_Name: BatteryLight
   m_TagString: Untagged
@@ -4598,7 +4599,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.025951147, g: 1, b: 0, a: 1}
-  m_Intensity: 2
+  m_Intensity: 2.6
   m_Range: 2
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -4648,6 +4649,21 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &965691384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965691381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4506d14f105059f419c61f3dcd491eff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalSeconds: 0.8
+  maxIntensity: 2.6
+  myLight: {fileID: 965691383}
 --- !u!1001 &979941130
 PrefabInstance:
   m_ObjectHideFlags: 0
