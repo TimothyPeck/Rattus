@@ -32,18 +32,19 @@ public class RoomRotation : MonoBehaviour
     }
     public void buttonRightClicked()
     {
-        i = i + 1;
-        if (i == 4) i = 0;
-
-        Debug.Log("button Right pressed");
-        currentTarget = target[i];
-    }
-    public void buttonLeftClicked()
-    {
         i = i - 1;
         if (i == -1) i = 3;
 
         Debug.Log("button Left pressed");
+        currentTarget = target[i];
+    }
+    public void buttonLeftClicked()
+    {
+        
+        i = i + 1;
+        if (i == 4) i = 0;
+
+        Debug.Log("button Right pressed");
         currentTarget = target[i];
     }
 }

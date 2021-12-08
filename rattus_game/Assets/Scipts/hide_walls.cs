@@ -64,18 +64,6 @@ public class hide_walls : MonoBehaviour
 
     public void buttonLeftClicked()
     {
-        walls[indexR].SetActive(true);
-        walls[indexL].SetActive(false);
-        indexR = indexL;
-        indexL--;
-        if (indexL < 0)
-            indexL = 3;
-        walls[indexL].SetActive(false);
-    }
-
-    public void buttonRightClicked()
-    {
-
         walls[indexL].SetActive(true);
         walls[indexR].SetActive(false);
         indexL = indexR;
@@ -83,5 +71,18 @@ public class hide_walls : MonoBehaviour
         if (indexR == 4)
             indexR = 0;
         walls[indexR].SetActive(false);
+
+    }
+
+    public void buttonRightClicked()
+    {
+        
+        walls[indexR].SetActive(true);
+        walls[indexL].SetActive(false);
+        indexR = indexL;
+        indexL--;
+        if (indexL < 0)
+            indexL = 3;
+        walls[indexL].SetActive(false);
     }
 }
