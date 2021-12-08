@@ -1236,6 +1236,7 @@ Transform:
   m_PrefabInstance: {fileID: 175421519}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 --- !u!1001 &175776730
 PrefabInstance:
@@ -1340,6 +1341,8 @@ Transform:
 =======
 >>>>>>> 8a2c3f3 (Rebase with main)
 >>>>>>> bf203bd (Rebase with main)
+=======
+>>>>>>> 9d4c6cf (Add important objects to bedroom)
 --- !u!1001 &176146916
 PrefabInstance:
   m_ObjectHideFlags: 0
