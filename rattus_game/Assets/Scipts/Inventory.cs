@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rattus.Inventory
+namespace Rattus
 {
     public class Inventory : MonoBehaviour
     {
