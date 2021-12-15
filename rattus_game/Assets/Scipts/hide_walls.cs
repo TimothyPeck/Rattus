@@ -29,19 +29,7 @@ public class hide_walls : MonoBehaviour
             wall.SetActive(true);
         }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> ea93c4d (Remove test spheres, comment in hide_walls.cs)
-=======
->>>>>>> cb33bf6 (rebase)
-=======
->>>>>>> bf203bd (Rebase with main)
-=======
->>>>>>> 9d4c6cf (Add important objects to bedroom)
         //0-> XPos
         //1-> ZNeg
         //2-> XNeg
@@ -79,10 +67,6 @@ public class hide_walls : MonoBehaviour
 
     public void buttonLeftClicked()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d20f69c (mettre au propre, changer btn)
         walls[indexL].SetActive(true);
         walls[indexR].SetActive(false);
         indexL = indexR;
@@ -96,11 +80,6 @@ public class hide_walls : MonoBehaviour
     public void buttonRightClicked()
     {
         
-<<<<<<< HEAD
-=======
->>>>>>> f9ff39b (rebase)
-=======
->>>>>>> d20f69c (mettre au propre, changer btn)
         walls[indexR].SetActive(true);
         walls[indexL].SetActive(false);
         indexR = indexL;
@@ -108,23 +87,5 @@ public class hide_walls : MonoBehaviour
         if (indexL < 0)
             indexL = 3;
         walls[indexL].SetActive(false);
-<<<<<<< HEAD
-=======
     }
-<<<<<<< HEAD
-
-    public void buttonRightClicked()
-    {
-
-        walls[indexL].SetActive(true);
-        walls[indexR].SetActive(false);
-        indexL = indexR;
-        indexR++;
-        if (indexR == 4)
-            indexR = 0;
-        walls[indexR].SetActive(false);
->>>>>>> f9ff39b (rebase)
-    }
-=======
->>>>>>> d20f69c (mettre au propre, changer btn)
 }
