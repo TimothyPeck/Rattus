@@ -29,7 +29,6 @@ public class hide_walls : MonoBehaviour
             wall.SetActive(true);
         }
 
-
         //0-> XPos
         //1-> ZNeg
         //2-> XNeg
