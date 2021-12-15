@@ -38,5 +38,10 @@ namespace Rattus.Inventory
         {
             return inventoryList;
         }
+
+        public bool containsItem(string itemName)
+        {
+            return inventoryList.Contains(itemName);
+        }
     }
 }
