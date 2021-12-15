@@ -3944,12 +3944,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Password recently changed is now:
 
-    on call animal
-
-    on call birthday
-
-    on
-    call colour
+    animalName_BirthYear_FavColour
 
 '
   m_isRightToLeft: 0
