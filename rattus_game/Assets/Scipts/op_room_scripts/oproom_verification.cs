@@ -8,6 +8,7 @@ namespace Rattus
     public class oproom_verification : MonoBehaviour
     {
         private Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
+        private Inventory inventory = new Inventory();
 
         // Start is called before the first frame update
         void Start()
@@ -30,7 +31,10 @@ namespace Rattus
         // Update is called once per frame
         void Update()
         {
-
+            if (Conditions["ReplacedFuseFloor"] && Conditions["ReplacedFuseTable"] && Conditions["ReplacedFuseCabinet"])
+            {
+                GameObject.Find("RoomLight").SetActive(true);
+            }
         }
     }
 }
