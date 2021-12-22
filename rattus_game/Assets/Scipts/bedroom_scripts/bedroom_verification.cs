@@ -7,7 +7,6 @@ namespace Rattus
 {
     public class bedroom_verification : MonoBehaviour
     {
-        private float rotationSpeed = 45;
         private Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
         private Inventory inventory = new Inventory();
 
@@ -16,49 +15,79 @@ namespace Rattus
         {
             Conditions.Add("GotKeyBed", false);
             Conditions.Add("GotDoorknob", false); // requires keybed
+            Conditions.Add("OpenMedRack", false);
+            Conditions.Add("OpenBedside", false);
             Conditions.Add("GotKeyBedside", false); // requires gotdoorknob
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(!Conditions["GotDoorknob"])
-                Conditions["GotDoorknob"] = inventory.containsItem("door_knob");
-            if(!Conditions["GotKeyBedside"])
-                Conditions["GotKeyBedside"] = inventory.containsItem("rust_key");
-
-            if (clickableObj.getLastClicked() != null)
+            GameObject lastClicked = clickableObj.getLastClicked();
+            if (lastClicked != null)
             {
-                //Debug.Log(clickableObj.getLastClicked().name);
-                if (clickableObj.getLastClicked().name == "Key" || clickableObj.getLastClicked().name == "pillBottle" || clickableObj.getLastClicked().name=="BedBedding")
+                if (
+                    lastClicked.name == "Key" || 
+                    lastClicked.name == "pillBottleCap1" || 
+                    lastClicked.name == "pillBottleCap2" || 
+                    lastClicked.name == "pillBottleBody")
                 {
                     inventory.addItemToInventory(GameObject.Find("Key"));
                     Conditions["GotKeyBed"] = true;
                     GameObject.Find("pillBottle").SetActive(false);
                 }
 
-                if (clickableObj.getLastClicked().name == "MedRackKnob" && Conditions["GotKeyBed"] && !Conditions["GotDoorknob"])
+                if ((
+                        lastClicked.name == "MedRackKnob" || 
+                        lastClicked.name == "MedRackKnobDoor_L") && 
+                    Conditions["GotKeyBed"] && 
+                    !Conditions["GotDoorknob"])
                 {
+                    Conditions["OpenMedRack"] = true;
                     Transform t = GameObject.Find("MedRackKnobDoor_L").transform;
-                    Conditions["GotDoorknob"] = true;
                     t.localEulerAngles = new Vector3(-180, 90, 0);
+                }
+
+                if((
+                        lastClicked.name=="door_knob_1" || 
+                        lastClicked.name == "door_knob_2" || 
+                        lastClicked.name == "door_knob_3" || 
+                        lastClicked.name == "door_knob_4" )&& 
+                    Conditions["OpenMedRack"])
+                {
+                    Conditions["GotDoorknob"] = true;
                     inventory.addItemToInventory(GameObject.Find("door_knob"));
                     GameObject.Find("door_knob").SetActive(false);
                 }
 
-                if ((clickableObj.getLastClicked().name == "MirrorShelf_Case" || clickableObj.getLastClicked().name == "MirrorShelf_DoorL") && Conditions["GotDoorknob"] && !Conditions["GotKeyBedside"])
+                if ((
+                        lastClicked.name == "MirrorShelf_Case" || 
+                        lastClicked.name == "MirrorShelf_DoorL") && 
+                    Conditions["GotDoorknob"] && 
+                    !Conditions["GotKeyBedside"])
                 {
+                    Conditions["OpenBedside"] = true;
                     Transform t = GameObject.Find("MirrorShelf_DoorL").transform;
                     t.localEulerAngles = new Vector3(0, 90, 0);
                     t.localScale = new Vector3(1, 1, 1);
+                }
+
+                if ((
+                        lastClicked.name=="rust_key" || 
+                        lastClicked.name=="RABBIT") &&
+                    Conditions["OpenBedside"])
+                {
                     Conditions["GotKeyBedside"] = true;
                     GameObject.Find("rust_key").SetActive(false);
                 }
 
-                if(clickableObj.getLastClicked().name=="Door" && Conditions["GotKeyBedside"])
+                if(lastClicked.name=="Door" && Conditions["GotKeyBedside"])
                 {
                     //TODO add move to next room
+                    Debug.Log("Complete");
                 }
+
+                clickableObj.resetLastClicked();
             }
         }
     }

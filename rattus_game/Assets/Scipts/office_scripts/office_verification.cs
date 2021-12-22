@@ -18,7 +18,18 @@ namespace Rattus
         // Update is called once per frame
         void Update()
         {
+            GameObject lastClicked = clickableObj.getLastClicked();
+            if (lastClicked != null)
+            {
+                Debug.Log(lastClicked.name);
+                if (!Conditions["ReadLetter"] && (lastClicked.name == "Board" || lastClicked.name == "PAGE" || lastClicked.name == "clipboardText"))
+                {
+                    Conditions["ReadLetter"] = true;
+                    //TODO Show letter to player
+                }
 
+                clickableObj.resetLastClicked();
+            }
         }
     }
 }
