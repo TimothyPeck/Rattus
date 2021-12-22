@@ -15,9 +15,4 @@ public class Menu : MonoBehaviour
         Debug.Log("Quit");
         Application.Quit();
     }
-
-    public void Credits()
-    {
-
-    }
 }
