@@ -39,6 +39,11 @@ public class clickableObj : MonoBehaviour
         return lastClicked;
     }
 
+    public static void resetLastClicked()
+    {
+        lastClicked = null;
+    }
+
     void printName(GameObject go)
     {
         print(go.name);

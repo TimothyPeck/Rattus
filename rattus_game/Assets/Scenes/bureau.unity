@@ -420,7 +420,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 87563821}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
@@ -1242,7 +1242,7 @@ GameObject:
   - component: {fileID: 346758610}
   m_Layer: 0
   m_Name: Camera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2159,6 +2159,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &863860347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1954106281014710, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+  m_PrefabInstance: {fileID: 2103620411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &863860349
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863860347}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: da1d9f4dc2a121747a3c82d392f61812, type: 3}
 --- !u!1 &866276639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,6 +3037,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be91b1395e4a69345aedbab9c4a3d0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1180790328 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1436944102497898, guid: 72653085a6b827f48b10b434c7972f1c, type: 3}
+  m_PrefabInstance: {fileID: 2103620411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1180790330
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180790328}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: da1d9f4dc2a121747a3c82d392f61812, type: 3}
 --- !u!1 &1198484251
 GameObject:
   m_ObjectHideFlags: 0
@@ -3138,6 +3176,7 @@ GameObject:
   - component: {fileID: 1213659793}
   - component: {fileID: 1213659795}
   - component: {fileID: 1213659794}
+  - component: {fileID: 1213659796}
   m_Layer: 0
   m_Name: clipboardText
   m_TagString: Untagged
@@ -3297,6 +3336,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1213659796
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213659792}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1001 &1279949785
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4111,8 +4164,8 @@ GameObject:
   - component: {fileID: 1718551737}
   - component: {fileID: 1718551736}
   - component: {fileID: 1718551735}
+  - component: {fileID: 1718551741}
   - component: {fileID: 1718551739}
-  - component: {fileID: 1718551740}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -4205,12 +4258,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1718551734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52845020fb22411439724c08edc06502, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d10a044b62dc5b4d8d3f64989de16b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnLeft: {fileID: 0}
-  btnRight: {fileID: 0}
---- !u!114 &1718551740
+--- !u!114 &1718551741
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4219,11 +4270,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1718551734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52845020fb22411439724c08edc06502, type: 3}
+  m_Script: {fileID: 11500000, guid: 071b02aa44b9664479696cb78075ec01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  btnLeft: {fileID: 0}
-  btnRight: {fileID: 0}
 --- !u!1 &1738559107
 GameObject:
   m_ObjectHideFlags: 0
