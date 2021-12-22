@@ -1,6 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a5c916233d2b3f448b0ff4552ef2509a
 NativeFormatImporter:
+=======
+<<<<<<< HEAD:rattus_game/Assets/Scipts/bedroom_scripts.meta
+guid: ef4ec856f9331b844a915a358da413fd
+folderAsset: yes
+DefaultImporter:
+=======
+guid: a5c916233d2b3f448b0ff4552ef2509a
+NativeFormatImporter:
+>>>>>>> b29bc32b9797f6a3edf6903057620a6c8aa1f09c:rattus_game/Assets/zMeTest/who asks satan SDF.asset.meta
+>>>>>>> b29bc32b9797f6a3edf6903057620a6c8aa1f09c
   externalObjects: {}
   mainObjectFileID: 11400000
   userData: 
