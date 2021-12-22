@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Rattus;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace Rattus
 {
@@ -96,8 +97,7 @@ namespace Rattus
 
                 if(lastClicked.name=="Door" && Conditions["GotKeyBedside"])
                 {
-                    //TODO add move to next room
-                    Debug.Log("Complete");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
 
                 clickableObj.resetLastClicked();

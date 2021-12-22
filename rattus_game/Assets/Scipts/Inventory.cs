@@ -24,6 +24,12 @@ namespace Rattus
             sortInventory();
         }
 
+        public void removeFromInventory(string name)
+        {
+            inventoryList.Remove(name);
+            sortInventory();
+        }
+
         private void sortInventory()
         {
             inventoryList.Sort();
