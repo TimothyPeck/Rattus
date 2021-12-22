@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Rattus;
+using System;
 
 namespace Rattus
 {
@@ -13,6 +14,18 @@ namespace Rattus
         // Start is called before the first frame update
         void Start()
         {
+            GameObject sceneLight = GameObject.Find("Spot Light");
+
+            sceneLight.GetComponent<Light>().spotAngle = 126;
+            sceneLight.GetComponent<Light>().range = 36;
+            sceneLight.GetComponent<Light>().lightmapBakeType = LightmapBakeType.Mixed;
+            sceneLight.GetComponent<Light>().color = new Color(0xFF, 0xD2, 0x8F);
+            sceneLight.GetComponent<Light>().intensity = 0.025F;
+            sceneLight.GetComponent<Light>().shadowStrength = 1;
+            sceneLight.GetComponent<Light>().shadowBias = 0.011F;
+            sceneLight.GetComponent<Light>().shadowNormalBias = 0.4F;
+            sceneLight.GetComponent<Light>().shadowNearPlane = 0.2F;
+
             Conditions.Add("GotKeyBed", false);
             Conditions.Add("GotDoorknob", false); // requires keybed
             Conditions.Add("OpenMedRack", false);
