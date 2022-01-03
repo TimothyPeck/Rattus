@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rattus;
 using UnityEngine.SceneManagement;
 
 namespace Rattus
@@ -26,7 +24,7 @@ namespace Rattus
             GameObject lastClicked = clickableObj.getLastClicked();
             if (lastClicked != null)
             {
-
+                //Debug.Log(lastClicked.name);
                 if (lastClicked.name == "picture")
                 {
                     //TODO dialog
@@ -59,7 +57,7 @@ namespace Rattus
                     t.localEulerAngles = new Vector3(0, -90, 0);
                 }
 
-                if(lastClicked.name=="Tape" && Conditions["OpenLockerL"])
+                if (lastClicked.name == "Tape" && Conditions["OpenLockerL"])
                 {
                     Conditions["GotTape"] = true;
                     inventory.addItemToInventory(GameObject.Find("Tape"));

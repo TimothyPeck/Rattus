@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rattus;
+using UnityEngine.SceneManagement;
 
 namespace Rattus
 {
@@ -16,6 +15,7 @@ namespace Rattus
 
             Conditions.Add("GotOpReport", false);
             Conditions.Add("GotSaw", false);
+            Conditions.Add("CaseOpen", false);
             Conditions.Add("GotBattery", false);
             Conditions.Add("GotFuseFloor", false);
             Conditions.Add("GotFuseTable", false);
@@ -32,7 +32,8 @@ namespace Rattus
         // Update is called once per frame
         void Update()
         {
-            if (Conditions["ReplacedFuseFloor"] && Conditions["ReplacedFuseTable"] && Conditions["ReplacedFuseCabinet"])
+            GameObject lastClicked = clickableObj.getLastClicked();
+            if (lastClicked != null)
             {
                 //Debug.Log(lastClicked.name);
                 if (lastClicked.name == "Fuse_Box_01" && !Conditions["LightOn"])
@@ -97,7 +98,7 @@ namespace Rattus
                     GameObject.Find("fusecontainer").SetActive(false);
                 }
 
-                if(lastClicked.name== "Fuse_Box_01")
+                if (lastClicked.name == "Fuse_Box_01")
                 {
                     Transform t = GameObject.Find("Fuse_Box_Door").transform;
                     t.localEulerAngles = new Vector3(0, 150, 0);
@@ -121,12 +122,12 @@ namespace Rattus
                     }
                 }
 
-                if(Conditions["GotBattery"] && Conditions["GotSaw"])
+                if (Conditions["GotBattery"] && Conditions["GotSaw"])
                 {
                     Conditions["ChargedSaw"] = true;
                 }
 
-                if(Conditions["ReplacedFuseFloor"] && Conditions["ReplacedFuseCabinet"] && Conditions["ReplacedFuseTable"])
+                if (Conditions["ReplacedFuseFloor"] && Conditions["ReplacedFuseCabinet"] && Conditions["ReplacedFuseTable"])
                 {
                     Conditions["LightOn"] = true;
                     GameObject.Find("RoomLight").GetComponent<Light>().intensity = 3;
@@ -137,6 +138,7 @@ namespace Rattus
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }
+            clickableObj.resetLastClicked();
         }
     }
 }

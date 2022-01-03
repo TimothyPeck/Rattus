@@ -1,4 +1,5 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 <<<<<<< HEAD:rattus_game/Assets/Scipts/bedroom_scripts.meta
 guid: ef4ec856f9331b844a915a358da413fd
 folderAsset: yes
@@ -9,6 +10,12 @@ NativeFormatImporter:
 >>>>>>> b29bc32b9797f6a3edf6903057620a6c8aa1f09c:rattus_game/Assets/zMeTest/who asks satan SDF.asset.meta
   externalObjects: {}
   mainObjectFileID: 11400000
+=======
+guid: ef4ec856f9331b844a915a358da413fd
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+>>>>>>> ed69a60d34d6fce9a5db63a4ab734292b361a9dc
   userData: 
   assetBundleName: 
   assetBundleVariant: 
