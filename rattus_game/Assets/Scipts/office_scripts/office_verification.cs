@@ -21,7 +21,7 @@ namespace Rattus
             GameObject lastClicked = clickableObj.getLastClicked();
             if (lastClicked != null)
             {
-                Debug.Log(lastClicked.name);
+                //Debug.Log(lastClicked.name);
                 if (!Conditions["ReadLetter"] && (lastClicked.name == "Board" || lastClicked.name == "PAGE" || lastClicked.name == "clipboardText"))
                 {
                     Conditions["ReadLetter"] = true;
