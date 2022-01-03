@@ -13,7 +13,7 @@ public class cabinet_light_flasher : MonoBehaviour
 
     void Start()
     {
-        flashTime = totalSeconds / Time.deltaTime;
+        flashTime = totalSeconds * 60;
     }
     void Update()
     {
