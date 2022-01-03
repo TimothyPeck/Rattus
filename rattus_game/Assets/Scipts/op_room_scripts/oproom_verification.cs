@@ -12,6 +12,7 @@ namespace Rattus
         // Start is called before the first frame update
         void Start()
         {
+
             Conditions.Add("GotOpReport", false);
             Conditions.Add("GotSaw", false);
             Conditions.Add("CaseOpen", false);
@@ -34,7 +35,7 @@ namespace Rattus
             GameObject lastClicked = clickableObj.getLastClicked();
             if(lastClicked != null)
             {
-                Debug.Log(lastClicked.name);
+                //Debug.Log(lastClicked.name);
                 if (lastClicked.name == "Fuse_Box_01" && !Conditions["LightOn"])
                 {
                     Debug.Log("The fuses seem to be missing, maybe I should find new ones");
