@@ -1,8 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Rattus;
-using System;
 using UnityEngine.SceneManagement;
 
 namespace Rattus

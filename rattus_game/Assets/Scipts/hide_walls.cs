@@ -78,7 +78,6 @@ public class hide_walls : MonoBehaviour
 
     public void buttonRightClicked()
     {
-        
         walls[indexR].SetActive(true);
         walls[indexL].SetActive(false);
         indexR = indexL;
