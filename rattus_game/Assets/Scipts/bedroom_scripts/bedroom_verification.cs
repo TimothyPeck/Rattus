@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Rattus
-{
+//namespace Rattus
+//{
     public class bedroom_verification : MonoBehaviour
     {
-        private Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
+        public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
         private Inventory inventory = new Inventory();
         public Dialogue dialogue;
 
@@ -70,24 +70,11 @@ namespace Rattus
 
                 }
 
-                if((lastClicked.name == "MedRackKnob" || lastClicked.name == "MedRackKnobDoor_L"))
+                if((lastClicked.name == "MedRackKnob" || lastClicked.name == "MedRackKnobDoor_L") && !Conditions["GotKeyBed"])
                 {
                     dialogue.AddSentence("Me", "Locked, there must be a key somewhere.");
-                }
-
-                if (
-                    lastClicked.name == "Key" || 
-                    lastClicked.name == "pillBottleCap1" || 
-                    lastClicked.name == "pillBottleCap2" || 
-                    lastClicked.name == "pillBottleBody")
-                {
-                    inventory.addItemToInventory(GameObject.Find("Key"));
-                    Conditions["GotKeyBed"] = true;
-                    GameObject.Find("pillBottle").SetActive(false);
-
-                    dialogue.AddSentence("Me", "This bottle contains a key, I might be able to open something with it.");
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
+                }          
 
                 if ((
                         lastClicked.name == "MedRackKnob" || 
@@ -103,26 +90,11 @@ namespace Rattus
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                 }
 
-                if((
-                        lastClicked.name=="door_knob_1" || 
-                        lastClicked.name == "door_knob_2" || 
-                        lastClicked.name == "door_knob_3" || 
-                        lastClicked.name == "door_knob_4" )&& 
-                    Conditions["OpenMedRack"])
-                {
-                    Conditions["GotDoorknob"] = true;
-                    inventory.addItemToInventory(GameObject.Find("door_knob"));
-                    GameObject.Find("door_knob").SetActive(false);
 
-                    dialogue.AddSentence("Me", "This doorknob seems to fit that bedside cabinet over there.\nMaybe it contains something useful.");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-                if ((
-                        lastClicked.name == "MirrorShelf_Case" || 
-                        lastClicked.name == "MirrorShelf_DoorL") && 
-                    Conditions["GotDoorknob"] && 
-                    !Conditions["GotKeyBedside"])
+                if ((lastClicked.name == "MirrorShelf_Case" || 
+                     lastClicked.name == "MirrorShelf_DoorL") && 
+                     Conditions["GotDoorknob"] && 
+                     !Conditions["GotKeyBedside"])
                 {
                     Conditions["OpenBedside"] = true;
                     Transform t = GameObject.Find("MirrorShelf_DoorL").transform;
@@ -130,19 +102,6 @@ namespace Rattus
                     t.localScale = new Vector3(1, 1, 1);
 
                     dialogue.AddSentence("Me", "Maybe there is something behind the rabbit?");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-                if ((
-                        lastClicked.name=="rust_key" || 
-                        lastClicked.name=="RABBIT") &&
-                    Conditions["OpenBedside"])
-                {
-                    Conditions["GotKeyBedside"] = true;
-                    GameObject.Find("rust_key").SetActive(false);
-
-                    dialogue.AddSentence("Me", "A rusty key, it must fit the door.");
-                    dialogue.AddSentence("Mysterious voice", "I see you have found the key, but this is just the start of the fun!\nMwahahahaha");
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                 }
 
@@ -161,5 +120,41 @@ namespace Rattus
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             dialogue.empty();
         }
+
+        public void objToInventory(GameObject objOnCam)
+        {
+        if (objOnCam.name == "pills")
+        {
+            inventory.addItemToInventory(GameObject.Find("Key"));
+            Conditions["GotKeyBed"] = true;
+            GameObject.Find("pillBottle").SetActive(false);
+
+            dialogue.AddSentence("Me", "This bottle contains a key, I might be able to open something with it.");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+        else if (objOnCam.name == "knob_door" && Conditions["OpenMedRack"])
+        {
+            Conditions["GotDoorknob"] = true;
+            inventory.addItemToInventory(GameObject.Find("door_knob"));
+            GameObject.Find("door_knob").SetActive(false);
+
+            dialogue.AddSentence("Me", "This doorknob seems to fit that bedside cabinet over there.\nMaybe it contains something useful.");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+
+        }
+        else if ( objOnCam.name == "Rusty_Key" && Conditions["OpenBedside"])
+        {
+            Conditions["GotKeyBedside"] = true;
+            GameObject.Find("rust_key").SetActive(false);
+
+            dialogue.AddSentence("Me", "A rusty key, it must fit the door.");
+            dialogue.AddSentence("Mysterious voice", "I see you have found the key, but this is just the start of the fun!\nMwahahahaha");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        } else
+        {
+            dialogue.AddSentence("Me", "I don't think this is usefull.");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
     }
-}
+    }
+//}

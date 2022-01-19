@@ -9,8 +9,11 @@ public class selectable : MonoBehaviour
     public float speed;
     public bool move = false;
     public bool retourne = false;
-   public static bool onCam = false;
+    public static bool onCam = false;
     panelManager pan;
+    //bedroom_verification bedVer;
+    public GameObject panel;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,12 @@ public class selectable : MonoBehaviour
             Vector3 a = transform.position;
             Vector3 b = basePlace;
             transform.position = Vector3.MoveTowards(a, b, speed);
+
+            if(a==b)
+            {
+                panel.SetActive(false);
+                retourne = false;
+            }
         }
     }
 
@@ -47,13 +56,13 @@ public class selectable : MonoBehaviour
             retourne = false;
             pan.displayPanel(this);
        }
-       
+              
     }
 
     public void retourneBtn()
     {
-            retourne = true;
-            onCam = false;
+        retourne = true;
+        onCam = false;
         move = false;
     }
 }

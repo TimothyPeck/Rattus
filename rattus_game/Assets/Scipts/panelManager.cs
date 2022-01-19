@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class panelManager : MonoBehaviour
 {
     selectable sel;
+    bedroom_verification bedVer;
 
     [SerializeField] private GameObject panel;
     
@@ -13,6 +14,7 @@ public class panelManager : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
+        bedVer = FindObjectOfType<bedroom_verification>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,7 @@ public class panelManager : MonoBehaviour
     public void retourne()
     {
         sel.retourneBtn();
-        panel.SetActive(false);
+        //panel.SetActive(false);
 
     }
 
@@ -32,5 +34,12 @@ public class panelManager : MonoBehaviour
     {
         this.sel = sel;
         panel.SetActive(true);
+    }
+
+    public void takeIt()
+    {
+        bedVer.objToInventory(sel.gameObject);
+        panel.SetActive(false);
+        retourne();
     }
 }

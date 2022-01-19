@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Rattus
-{
+//namespace Rattus
+//{
     public class Inventory : MonoBehaviour
     {
         private const int INVENTORY_SIZE = 6;
@@ -50,4 +50,4 @@ namespace Rattus
             return inventoryList.Contains(itemName);
         }
     }
-}
+//}

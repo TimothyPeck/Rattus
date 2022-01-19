@@ -1,0 +1,9 @@
+To-Do list P2:
+
+- fonctionnement inventaire
+
+- visuel btn
+
+- visuel objet
+
+- 
