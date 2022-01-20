@@ -1555,7 +1555,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2073756069}
         m_TargetAssemblyTypeName: panelManager, Assembly-CSharp
-        m_MethodName: retourne
+        m_MethodName: returnToBasePos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1692,7 +1692,7 @@ RectTransform:
   - {fileID: 512822710}
   - {fileID: 1469661400}
   m_Father: {fileID: 2073756068}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2107,7 +2107,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 668811937}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 680396210}
+        m_TargetAssemblyTypeName: RoomRotation, Assembly-CSharp
+        m_MethodName: buttonLeftClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 680396215}
+        m_TargetAssemblyTypeName: hide_walls, Assembly-CSharp
+        m_MethodName: buttonLeftClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &668811937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2762,12 +2786,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!1001 &945374799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3190,7 +3215,7 @@ RectTransform:
   - {fileID: 320119992}
   - {fileID: 1346649019}
   m_Father: {fileID: 2073756068}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3286,7 +3311,7 @@ RectTransform:
   m_Children:
   - {fileID: 249405931}
   m_Father: {fileID: 2073756068}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -3336,7 +3361,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1136005874}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 680396210}
+        m_TargetAssemblyTypeName: RoomRotation, Assembly-CSharp
+        m_MethodName: buttonRightClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 680396215}
+        m_TargetAssemblyTypeName: hide_walls, Assembly-CSharp
+        m_MethodName: buttonRightClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1136005874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3570,12 +3619,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
-  speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  speed: 0.3
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!1001 &1214890592
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3768,12 +3818,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!1 &1282105971
 GameObject:
   m_ObjectHideFlags: 0
@@ -4677,12 +4728,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!136 &1593545601
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5252,12 +5304,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!4 &1744709580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0669f3d8f4b119f418a4bbe061cc198f, type: 3}
@@ -5406,12 +5459,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!136 &1824131496
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5994,12 +6048,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!1001 &1943895118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6109,12 +6164,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!1 &1966643934 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1062407804631384, guid: 8f978c5848e19084c9fbc6df0138d2b4, type: 3}
@@ -6200,12 +6256,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1256ace1e9e1d488da843b6970cf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  panScript: {fileID: 0}
+  panel: {fileID: 576463518}
   view: {fileID: 753567432}
   basePlace: {x: 0, y: 0, z: 0}
   speed: 0.5
-  move: 0
-  retourne: 0
-  panel: {fileID: 576463518}
+  moveToCam: 0
+  returnBasePos: 0
 --- !u!1 &2033700985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6373846850369446124, guid: 188052b9f4b667842b68c590ab874bdd, type: 3}
@@ -6318,9 +6375,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 668811935}
+  - {fileID: 1136005872}
   - {fileID: 1108590797}
   - {fileID: 576463519}
-  - {fileID: 1136005872}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

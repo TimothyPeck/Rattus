@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class panelManager : MonoBehaviour
 {
-    selectable sel;
-    bedroom_verification bedVer;
+    selectable selectableScript;
+    bedroom_verification bedroomScript;
 
     [SerializeField] private GameObject panel;
     
@@ -14,7 +14,7 @@ public class panelManager : MonoBehaviour
     void Start()
     {
         panel.SetActive(false);
-        bedVer = FindObjectOfType<bedroom_verification>();
+        bedroomScript = FindObjectOfType<bedroom_verification>();
     }
 
     // Update is called once per frame
@@ -23,23 +23,23 @@ public class panelManager : MonoBehaviour
         
     }
 
-    public void retourne()
+    public void returnToBasePos()
     {
-        sel.retourneBtn();
+        selectableScript.returneBtn();
         //panel.SetActive(false);
 
     }
 
     public void displayPanel(selectable sel)
     {
-        this.sel = sel;
+        this.selectableScript = sel;
         panel.SetActive(true);
     }
 
     public void takeIt()
     {
-        bedVer.objToInventory(sel.gameObject);
+        bedroomScript.objToInventory(selectableScript.gameObject);
         panel.SetActive(false);
-        retourne();
+        returnToBasePos();
     }
 }
