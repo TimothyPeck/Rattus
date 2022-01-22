@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class selectable : MonoBehaviour
 {
     public panelManager panScript;
@@ -56,8 +57,7 @@ public class selectable : MonoBehaviour
             onCam = true;
             returnBasePos = false;
             panScript.displayPanel(this);
-       }
-              
+       }            
     }
 
     public void returneBtn()

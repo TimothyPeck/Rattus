@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//namespace Rattus
-//{
     public class bedroom_verification : MonoBehaviour
     {
         public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
@@ -43,75 +41,66 @@ using UnityEngine.SceneManagement;
         void Update()
         {
             GameObject lastClicked = clickableObj.getLastClicked();
-            if (lastClicked != null)
+
+        if (lastClicked != null)
+        {
+            if (lastClicked.name == "Door")
             {
-                if(lastClicked.name=="Door")
-                {
-                    dialogue.AddSentence("Me", "It's locked \nI need to find the key");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-                if (lastClicked.name == "BedBedding")
-                {
-                    dialogue.AddSentence("Me", "There appears to be a bottle on the pillow, it seems to have something in it.");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-                if (lastClicked.name == "picture")
-                {
-                    dialogue.AddSentence("Me", "Just a derpy cat, it's not useful to my escape.");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-                if (lastClicked.name == "SofaPillow" || lastClicked.name == "SofaMain")
-                {
-                    dialogue.AddSentence("Me", "A very comfortable looking sofa, but now is not the time for relaxation.");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-
-                }
-
-                if((lastClicked.name == "MedRackKnob" || lastClicked.name == "MedRackKnobDoor_L") && !Conditions["GotKeyBed"])
-                {
-                    dialogue.AddSentence("Me", "Locked, there must be a key somewhere.");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }          
-
-                if ((
-                        lastClicked.name == "MedRackKnob" || 
-                        lastClicked.name == "MedRackKnobDoor_L") && 
-                    Conditions["GotKeyBed"] && 
-                    !Conditions["GotDoorknob"])
-                {
-                    Conditions["OpenMedRack"] = true;
-                    Transform t = GameObject.Find("MedRackKnobDoor_L").transform;
-                    t.localEulerAngles = new Vector3(-180, 90, 0);
-
-                    dialogue.AddSentence("Me", "There's something in here.");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-
-                if ((lastClicked.name == "MirrorShelf_Case" || 
-                     lastClicked.name == "MirrorShelf_DoorL") && 
-                     Conditions["GotDoorknob"] && 
-                     !Conditions["GotKeyBedside"])
-                {
-                    Conditions["OpenBedside"] = true;
-                    Transform t = GameObject.Find("MirrorShelf_DoorL").transform;
-                    t.localEulerAngles = new Vector3(0, 90, 0);
-                    t.localScale = new Vector3(1, 1, 1);
-
-                    dialogue.AddSentence("Me", "Maybe there is something behind the rabbit?");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-                }
-
-                if(lastClicked.name=="Door" && Conditions["GotKeyBedside"])
-                {
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-                }
-
-                clickableObj.resetLastClicked();
+                dialogue.AddSentence("Me", "It's locked \nI need to find the key");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
+            else if (lastClicked.name == "BedBedding")
+            {
+                dialogue.AddSentence("Me", "There appears to be a bottle on the pillow, it seems to have something in it.");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if (lastClicked.name == "picture")
+            {
+                dialogue.AddSentence("Me", "Just a derpy cat, it's not useful to my escape.");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if (lastClicked.name == "SofaPillow" || lastClicked.name == "SofaMain")
+            {
+                dialogue.AddSentence("Me", "A very comfortable looking sofa, but now is not the time for relaxation.");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if ((lastClicked.name == "MedRackKnob" || lastClicked.name == "MedRackKnobDoor_L") && !Conditions["GotKeyBed"])
+            {
+                dialogue.AddSentence("Me", "Locked, there must be a key somewhere.");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if ((lastClicked.name == "MedRackKnob" ||
+                       lastClicked.name == "MedRackKnobDoor_L") &&
+                       Conditions["GotKeyBed"] &&
+                       !Conditions["GotDoorknob"])
+            {
+                Conditions["OpenMedRack"] = true;
+                Transform t = GameObject.Find("MedRackKnobDoor_L").transform;
+                t.localEulerAngles = new Vector3(-180, 90, 0);
+
+                dialogue.AddSentence("Me", "There's something in here.");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if ((lastClicked.name == "MirrorShelf_Case" ||
+                      lastClicked.name == "MirrorShelf_DoorL") &&
+                      Conditions["GotDoorknob"] &&
+                      !Conditions["GotKeyBedside"])
+            {
+                Conditions["OpenBedside"] = true;
+                Transform t = GameObject.Find("MirrorShelf_DoorL").transform;
+                t.localEulerAngles = new Vector3(0, 90, 0);
+                t.localScale = new Vector3(1, 1, 1);
+
+                dialogue.AddSentence("Me", "Maybe there is something behind the rabbit?");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            }
+            else if (lastClicked.name == "Door" && Conditions["GotKeyBedside"])
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        
+            clickableObj.resetLastClicked();
+        }
             dialogue.empty();
         }
 
@@ -157,4 +146,3 @@ using UnityEngine.SceneManagement;
         }
     }
     }
-//}

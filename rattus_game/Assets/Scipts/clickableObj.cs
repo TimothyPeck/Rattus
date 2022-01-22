@@ -29,6 +29,7 @@ public class clickableObj : MonoBehaviour
                 if (hit.transform.gameObject != null)
                 {
                     lastClicked=(hit.transform.gameObject);
+                    printName(hit.transform.gameObject);
                 }
             }
         }
