@@ -9,6 +9,7 @@ public class panelManager : MonoBehaviour
     selectable selectableScript;
     bedroom_verification bedroomScript;
     reception_verification recepScript;
+    oproom_verification opRoomScript;
 
     [SerializeField] private GameObject panel;
     
@@ -18,6 +19,7 @@ public class panelManager : MonoBehaviour
         panel.SetActive(false);
         bedroomScript = FindObjectOfType<bedroom_verification>();
         recepScript = FindObjectOfType<reception_verification>();
+        opRoomScript = FindObjectOfType<oproom_verification>();
     }
 
     // Update is called once per frame
@@ -54,7 +56,7 @@ public class panelManager : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "salleOP")
         {
-            //recepScript.objToInventory(selectableScript.gameObject);
+        opRoomScript.objToInventory(selectableScript.gameObject);
         }
     }
 }

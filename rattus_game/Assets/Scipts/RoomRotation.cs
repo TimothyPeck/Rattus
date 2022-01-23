@@ -13,9 +13,6 @@ public class RoomRotation : MonoBehaviour
     Vector3 direction;
     int i = 0;
 
-    //temporaire
-    public GameObject panelComputer;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -32,12 +29,6 @@ public class RoomRotation : MonoBehaviour
         direction = (currentTarget.position - transform.position).normalized;
         rotGoal = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotGoal, rotationSpeed);
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Debug.Log("downArrow pressed");
-            panelComputer.SetActive(true);
-        }
     }
     public void buttonRightClicked()
     {
