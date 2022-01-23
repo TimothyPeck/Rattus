@@ -118,7 +118,8 @@ using UnityEngine.SceneManagement;
             Conditions["GotKeyBed"] = true;
             GameObject.Find("pillBottle").SetActive(false);
 
-            dialogue.AddSentence("Me", "This bottle contains a key, I might be able to open something with it.");
+            dialogue.AddSentence("Me", "This bottle contains a key");
+            dialogue.AddSentence("Me", "I might be able to open something with it.");
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
         else if (objOnCam.name == "knob_door" && Conditions["OpenMedRack"])
