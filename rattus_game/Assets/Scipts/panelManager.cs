@@ -29,7 +29,7 @@ public class panelManager : MonoBehaviour
     public void returnToBasePos()
     {
         selectableScript.returneBtn();
-        panel.SetActive(false);
+        //panel.SetActive(false);
 
     }
 
@@ -42,7 +42,7 @@ public class panelManager : MonoBehaviour
     public void takeIt()
     {   
         returnToBasePos();
-        //panel.SetActive(false);       
+        panel.SetActive(false);       
 
         if(SceneManager.GetActiveScene().name=="chambre")
         {

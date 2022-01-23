@@ -44,7 +44,7 @@ using UnityEngine.SceneManagement;
 
         if (lastClicked != null)
         {
-            if (lastClicked.name == "Door")
+            if (lastClicked.name == "Door" && !Conditions["GotKeyBedside"])
             {
                 dialogue.AddSentence("Me", "It's locked \nI need to find the key");
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
