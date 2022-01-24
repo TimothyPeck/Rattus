@@ -28,7 +28,6 @@ using UnityEngine.SceneManagement;
                                               //Conditions.Add("CanOpenDoor", false); // redundant if all others are true
 
             dialogue.AddSentence("Mysterious voice", "You have finally entered my final challenge.", 5);
-        /*
             dialogue.AddSentence("Mysterious voice", "The operating room of horrific suffering.", 7);
             dialogue.AddSentence("Mysterious voice", "This is where the most barbaric operations took place.", 9);
             dialogue.AddSentence("Mysterious voice", "Just look at all those lobotomy instruments. So beautiful.", 9);
@@ -36,7 +35,7 @@ using UnityEngine.SceneManagement;
             dialogue.AddSentence("Me", "as if it's all some kind of game.", 6);
             dialogue.AddSentence("Me", "Even if it is, I still need to escape.", 4);
             dialogue.AddSentence("Me", "If only I had some light.", 4);
-        */
+        
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             dialogue.empty();
         }

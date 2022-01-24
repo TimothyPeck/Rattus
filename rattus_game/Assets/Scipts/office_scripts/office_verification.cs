@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Rattus
 {
@@ -8,6 +9,9 @@ namespace Rattus
         private Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
         public Dialogue dialogue;
         public AudioSource scream;
+        public GameObject btnEnd;
+        public GameObject panEnd;
+        public GameObject btnMenu;
 
         // Start is called before the first frame update
         void Start()
@@ -56,10 +60,26 @@ namespace Rattus
                     RenderSettings.skybox.SetColor("_SkyTint", Color.black);
                     GameObject.Find("btnLeft").SetActive(false);
                     GameObject.Find("btnRight").SetActive(false);
-                    scream.Play(); //marche pas 
+                    btnEnd.SetActive(true);
+
+                    if (dialogue.sentences.Count == 3)
+                    {
+                        scream.Play();
+                    }
                 }
                 clickableObj.resetLastClicked();
             }
+           
+        }
+
+        public void TheEnd()
+        {
+            panEnd.SetActive(true);
+        }
+
+        public void menu()
+        {
+            SceneManager.LoadScene("MainMenu");
         }
     }
 }
