@@ -30,9 +30,9 @@ using UnityEngine.SceneManagement;
             Conditions.Add("OpenBedside", false);
             Conditions.Add("GotKeyBedside", false); // requires gotdoorknob
 
-            dialogue.AddSentence("Me", "I seem to have been trapped in here, I need to find a way out.");
-            dialogue.AddSentence("Mysterious voice", "Hello John, as you can see I have trapped you in this small room from which you will never escape.");
-            dialogue.AddSentence("Mysterious voice", "In time you will understand why I have trapped you here, but for now I shall let you rot in the prison cell");
+            dialogue.AddSentence("Me", "I seem to have been trapped in here, I need to find a way out.", 4);
+            dialogue.AddSentence("Mysterious voice", "Hello John, as you can see I have trapped you in this small room from which you will never escape.", 6);
+            dialogue.AddSentence("Mysterious voice", "In time you will understand why I have trapped you here, but for now I shall let you rot in the prison cell.", 7);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             dialogue.empty();
         }
@@ -42,11 +42,11 @@ using UnityEngine.SceneManagement;
         {
             GameObject lastClicked = clickableObj.getLastClicked();
 
-        if (lastClicked != null)
-        {
+            if (lastClicked != null)
+            {
             if (lastClicked.name == "Door" && !Conditions["GotKeyBedside"])
             {
-                dialogue.AddSentence("Me", "It's locked \nI need to find the key");
+                dialogue.AddSentence("Me", "It's locked. \nI need to find the key.", 3);
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if (lastClicked.name == "BedBedding")
@@ -59,14 +59,27 @@ using UnityEngine.SceneManagement;
                 dialogue.AddSentence("Me", "Just a derpy cat, it's not useful to my escape.");
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
+            else if (lastClicked.name == "Socket_03")
+            {
+                GameObject sceneLight = GameObject.Find("Spot Light");
+
+                if(sceneLight.GetComponent<Light>().intensity == 0)
+                {
+                    sceneLight.GetComponent<Light>().intensity = 0.025F;
+                }
+                else
+                {
+                    sceneLight.GetComponent<Light>().intensity = 0;
+                }
+            }
             else if (lastClicked.name == "SofaPillow" || lastClicked.name == "SofaMain")
             {
-                dialogue.AddSentence("Me", "A very comfortable looking sofa, but now is not the time for relaxation.");
+                dialogue.AddSentence("Me", "A very comfortable looking sofa, but now is not the time for relaxation.", 5);
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if ((lastClicked.name == "MedRackKnob" || lastClicked.name == "MedRackKnobDoor_L") && !Conditions["GotKeyBed"])
             {
-                dialogue.AddSentence("Me", "Locked, there must be a key somewhere.");
+                dialogue.AddSentence("Me", "Locked, there must be a key somewhere.", 3);
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if ((lastClicked.name == "MedRackKnob" ||
@@ -78,7 +91,7 @@ using UnityEngine.SceneManagement;
                 Transform t = GameObject.Find("MedRackKnobDoor_L").transform;
                 t.localEulerAngles = new Vector3(-180, 90, 0);
 
-                dialogue.AddSentence("Me", "There's something in here.");
+                dialogue.AddSentence("Me", "There's something in here.", 2);
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if ((lastClicked.name == "MirrorShelf_Case" ||
@@ -91,7 +104,7 @@ using UnityEngine.SceneManagement;
                 t.localEulerAngles = new Vector3(0, 90, 0);
                 t.localScale = new Vector3(1, 1, 1);
 
-                dialogue.AddSentence("Me", "Maybe there is something behind the rabbit?");
+                dialogue.AddSentence("Me", "Maybe there is something behind the rabbit?", 3);
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if (lastClicked.name == "Door" && Conditions["GotKeyBedside"])
@@ -99,8 +112,8 @@ using UnityEngine.SceneManagement;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         
-            clickableObj.resetLastClicked();
-        }
+                clickableObj.resetLastClicked();
+            }
             dialogue.empty();
         }
 
@@ -118,8 +131,8 @@ using UnityEngine.SceneManagement;
             Conditions["GotKeyBed"] = true;
             GameObject.Find("pillBottle").SetActive(false);
 
-            dialogue.AddSentence("Me", "This bottle contains a key");
-            dialogue.AddSentence("Me", "I might be able to open something with it.");
+            dialogue.AddSentence("Me", "This bottle contains a key", 2);
+            dialogue.AddSentence("Me", "I might be able to open something with it.", 3);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
         else if (objOnCam.name == "knob_door" && Conditions["OpenMedRack"])
@@ -128,7 +141,7 @@ using UnityEngine.SceneManagement;
             inventory.addItemToInventory(GameObject.Find("door_knob"));
             GameObject.Find("door_knob").SetActive(false);
 
-            dialogue.AddSentence("Me", "This doorknob seems to fit that bedside cabinet over there.\nMaybe it contains something useful.");
+            dialogue.AddSentence("Me", "This doorknob seems to fit that bedside cabinet over there.\nMaybe it contains something useful.", 6);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
         }
@@ -138,11 +151,17 @@ using UnityEngine.SceneManagement;
             GameObject.Find("rust_key").SetActive(false);
 
             dialogue.AddSentence("Me", "A rusty key, it must fit the door.");
-            dialogue.AddSentence("Mysterious voice", "I see you have found the key, but this is just the start of the fun!\nMwahahahaha");
+            dialogue.AddSentence("Mysterious voice", "I see you have found the key, but this is just the start of the fun!\nMwahahahaha", 6);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        } else
+        } 
+        else if(objOnCam.name=="RABBIT" && Conditions["OpenBedside"])
         {
-            dialogue.AddSentence("Me", "I don't think this is usefull.");
+            dialogue.AddSentence("Me", "This rabbit seems oddly familiar, like a sens of déja vu, but I have no idea where from.", 6);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        }
+        else
+        {
+            dialogue.AddSentence("Me", "I don't think this is useful.", 3);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
     }

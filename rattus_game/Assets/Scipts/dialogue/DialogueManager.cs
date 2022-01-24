@@ -31,6 +31,8 @@ public class DialogueManager : MonoBehaviour
         int[] times = dialogue.times.ToArray();
 
         dialogues.Clear();
+        diag_names.Clear();
+        diag_times.Clear();
 
         foreach(string diag in sentences)
         {
@@ -58,10 +60,10 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        StartCoroutine(showMessageForSeconds(5));
+        StartCoroutine(showMessageForSeconds());
     }
 
-    IEnumerator showMessageForSeconds(int seconds)
+    IEnumerator showMessageForSeconds()
     {
         string sentence = dialogues.Dequeue();
         string name = diag_names.Dequeue();

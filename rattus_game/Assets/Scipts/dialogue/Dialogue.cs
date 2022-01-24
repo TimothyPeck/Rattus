@@ -28,5 +28,6 @@ public class Dialogue
     {
         sentences.Clear();
         names.Clear();
+        times.Clear();
     }
 }
