@@ -39,7 +39,8 @@ public class reception_verification : MonoBehaviour
             else if (lastClicked.name == "postIt")
             {
                 dialogue.AddSentence("Me", "it says that the password recently change");
-                dialogue.AddSentence("Me", "now it's : animalName_BirthYear_FavoriteColour");
+                dialogue.AddSentence("Me", "now it's");
+                dialogue.AddSentence("Me", "animalName_BirthYear_FavoriteColour",5);
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if (lastClicked.name == "menuboard")
