@@ -16,7 +16,7 @@ using UnityEngine.SceneManagement;
 
             sceneLight.GetComponent<Light>().spotAngle = 126;
             sceneLight.GetComponent<Light>().range = 36;
-            sceneLight.GetComponent<Light>().lightmapBakeType = LightmapBakeType.Mixed;
+            //sceneLight.GetComponent<Light>().lightmapBakeType = LightmapBakeType.Mixed;
             sceneLight.GetComponent<Light>().color = new Color(0xFF, 0xD2, 0x8F);
             sceneLight.GetComponent<Light>().intensity = 0.025F;
             sceneLight.GetComponent<Light>().shadowStrength = 1;
