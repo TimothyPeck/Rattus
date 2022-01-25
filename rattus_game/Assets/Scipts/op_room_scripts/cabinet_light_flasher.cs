@@ -15,6 +15,10 @@ public class cabinet_light_flasher : MonoBehaviour
     {
         flashTime = totalSeconds * 60;
     }
+
+    /// <summary>
+    /// Turns the light on and off for the given number of seconds
+    /// </summary>
     void Update()
     {
         if (increase)

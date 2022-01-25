@@ -26,7 +26,7 @@ public class selectable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(moveToCam)
+        if (moveToCam)
         {
             Vector3 a = transform.position;
             Vector3 b = view.position;
@@ -39,8 +39,9 @@ public class selectable : MonoBehaviour
             Vector3 b = basePlace;
             transform.position = Vector3.MoveTowards(a, b, speed);
 
-            if(a==b)
+            if (a == b)
             {
+                // important de désactiver ici, sinon la pièce peut tournée quand l'objet est en l'air
                 panel.SetActive(false);
                 returnBasePos = false;
             }
@@ -49,15 +50,15 @@ public class selectable : MonoBehaviour
 
     private void OnMouseDown()
     {
-       if(!onCam)
-       {
+        if (!onCam)
+        {
             moveToCam = true;
             basePlace = transform.position;
             Debug.Log(name);
             onCam = true;
             returnBasePos = false;
-            panScript.displayPanel(this);
-       }            
+            panScript.displayPanel(this); // envoie au PanelManger l'objet cliqué avec (this)
+        }
     }
 
     public void returneBtn()

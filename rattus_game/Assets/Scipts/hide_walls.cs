@@ -11,6 +11,9 @@ public class hide_walls : MonoBehaviour
     int indexL = 1 , indexR = 2;
 
     // Start is called before the first frame update
+    /// <summary>
+    /// Collects the wall objects and adds them to it's list of objects to hide, also sets the order and indexes
+    /// </summary>
     void Start()
     {
        
@@ -64,6 +67,9 @@ public class hide_walls : MonoBehaviour
         */
     }
 
+    /// <summary>
+    /// Hides the right wall and unhides the left, updates the indexes
+    /// </summary>
     public void buttonLeftClicked()
     {
         walls[indexL].SetActive(true);
@@ -76,6 +82,9 @@ public class hide_walls : MonoBehaviour
 
     }
 
+    /// <summary>
+    /// Hides the left wall and unhides the right, updates the indexes
+    /// </summary>
     public void buttonRightClicked()
     {
         walls[indexR].SetActive(true);

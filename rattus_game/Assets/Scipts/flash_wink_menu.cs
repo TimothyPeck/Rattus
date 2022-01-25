@@ -11,6 +11,8 @@ public class flash_wink_menu : MonoBehaviour
     public float timer;
     public float maxIntensity;
 
+    private bool on = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,9 @@ public class flash_wink_menu : MonoBehaviour
         FlickerLight();
     }
 
+    /// <summary>
+    /// turns the light on or off for varying amounts of time, to emulate a faulty fixture
+    /// </summary>
     void FlickerLight()
     {
 
@@ -33,8 +38,16 @@ public class flash_wink_menu : MonoBehaviour
         }
         if (timer < 0)
         {
-            Light.enabled = !Light.enabled;
+            if (on)
+            {
+                Light.intensity = maxIntensity / 2;
+            }
+            else
+            {
+                Light.intensity = maxIntensity;
+            }
             timer = Random.Range(minTime, maxTime);
+            on = !on;
         }
     }
 }

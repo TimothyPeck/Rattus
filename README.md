@@ -2,7 +2,7 @@
 
 LFS peut être installé en faisant `git lfs install`. Si un clone a été éffectué avant d'installer il faut faire `git lfs install` puis `git lfs pull` pour pull les fichiers LFS.
 
-Pour seulement télécharger le jeu, téléchargez que le dossier rattus_executables.
+Pour seulement jouer au jeu, reférez vous au site: 
 
 # Rattus
 

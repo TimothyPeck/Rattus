@@ -125,9 +125,14 @@ public class reception_verification : MonoBehaviour
         }
         dialogue.empty();
     }
+
+    /// <summary>
+    /// Piecks up an item and shows dialogue when put down
+    /// </summary>
+    /// <param name="objOnCam">GameObject of the last clicked object, available via clickableObj</param>
     public void objToInventory(GameObject objOnCam)
     {
-        if (objOnCam.name == "Tape" && Conditions["OpenLockerL"])
+        if (objOnCam.name == "Tape_parent" && Conditions["OpenLockerL"])
         {
             Conditions["GotTape"] = true;
             inventory.addItemToInventory(GameObject.Find("Tape"));

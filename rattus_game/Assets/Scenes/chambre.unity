@@ -2436,7 +2436,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.367
   m_Pitch: 0.8
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2560,7 +2560,7 @@ BoxCollider:
   m_GameObject: {fileID: 753567431}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -4019,7 +4019,7 @@ PrefabInstance:
     - target: {fileID: -6821204558967421867, guid: 188052b9f4b667842b68c590ab874bdd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a1c20aec61206294d889167fc37bfb7e, type: 2}
+      objectReference: {fileID: 2100000, guid: b72162cc23511a8498d6697cc7af2cac, type: 2}
     - target: {fileID: -5295952373366780785, guid: 188052b9f4b667842b68c590ab874bdd, type: 3}
       propertyPath: m_Name
       value: door_knob_1
@@ -4051,7 +4051,7 @@ PrefabInstance:
     - target: {fileID: 7050865349373390900, guid: 188052b9f4b667842b68c590ab874bdd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a1c20aec61206294d889167fc37bfb7e, type: 2}
+      objectReference: {fileID: 2100000, guid: b72162cc23511a8498d6697cc7af2cac, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188052b9f4b667842b68c590ab874bdd, type: 3}
 --- !u!1 &1227736732

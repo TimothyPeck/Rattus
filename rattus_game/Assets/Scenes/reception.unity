@@ -2972,15 +2972,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463972912}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.492001, y: -0.05387417, z: -11.625}
-  m_LocalScale: {x: 1, y: 0.03311258, z: 1}
+  m_LocalRotation: {x: -0, y: 0.0563029, z: -0, w: 0.99841374}
+  m_LocalPosition: {x: -8.482042, y: -0.0676, z: -11.625787}
+  m_LocalScale: {x: 1, y: 0.15, z: 2.79}
   m_Children:
   - {fileID: 377916254}
   - {fileID: 1447200466}
   m_Father: {fileID: 1223602128}
   m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 6.455, z: 0}
 --- !u!114 &463972914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5958,7 +5958,7 @@ GameObject:
   - component: {fileID: 966063949}
   - component: {fileID: 966063948}
   m_Layer: 0
-  m_Name: Tape
+  m_Name: Tape_parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6210,7 +6210,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.367
   m_Pitch: 0.8
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -10835,9 +10835,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10e22e2ea5ac93f43b66a062e7e82b79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 0}
-  diagText: {fileID: 0}
-  animator: {fileID: 0}
+  nameText: {fileID: 54363263}
+  diagText: {fileID: 1008724643}
+  animator: {fileID: 48357806}
 --- !u!4 &1687784066
 Transform:
   m_ObjectHideFlags: 0
@@ -12884,6 +12884,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4693397534889322, guid: 25e8aee7829808347b0d5ca4566a4e3c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65923226156230326, guid: 25e8aee7829808347b0d5ca4566a4e3c, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

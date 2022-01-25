@@ -22,6 +22,11 @@ public class DialogueManager : MonoBehaviour
         diag_times = new Queue<int>();
     }
 
+    /// <summary>
+    /// Begins the dialogue
+    /// Extracts the dialogue names, texts, and times from the dialogue object into it's own queues, then calls DisplayDialogue()
+    /// </summary>
+    /// <param name="dialogue"></param>
     public void StartDialogue(Dialogue dialogue)
     {
         animator.SetBool("IsOpen", true);
@@ -52,6 +57,9 @@ public class DialogueManager : MonoBehaviour
         DisplayDialogue();
     }
 
+    /// <summary>
+    /// Starts the coroutine that displays dialogue
+    /// </summary>
     public void DisplayDialogue()
     {
         if (dialogues.Count == 0)
@@ -63,6 +71,10 @@ public class DialogueManager : MonoBehaviour
         StartCoroutine(showMessageForSeconds());
     }
 
+    /// <summary>
+    /// Show a dialogue for the given time using Unity's built-in WaitForSecondsRealTime function
+    /// </summary>
+    /// <returns>IEnumerator</returns>
     IEnumerator showMessageForSeconds()
     {
         string sentence = dialogues.Dequeue();
@@ -75,6 +87,12 @@ public class DialogueManager : MonoBehaviour
         DisplayDialogue();
     }
 
+    /// <summary>
+    /// Types a sentence letter by letter, may cause problems with overlapping sentences or duplicating letters. 
+    /// Use at your own risk.
+    /// </summary>
+    /// <param name="sentence">The sentence to be displayed</param>
+    /// <returns>IEnumerator</returns>
     IEnumerator TypeSentence(string sentence)
     {
         diagText.text = "";
@@ -84,7 +102,9 @@ public class DialogueManager : MonoBehaviour
             yield return null;
         }
     }
-
+    /// <summary>
+    /// Hides the dialogue box
+    /// </summary>
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);

@@ -87,8 +87,8 @@ using UnityEngine.SceneManagement;
                 }            
                 else if(lastClicked.name == "MedRack" && !Conditions["ChargedSaw"])
                 {
-                    dialogue.AddSentence("Me", "This door is locked and the keyhole has been filed,", 4);
-                    dialogue.AddSentence("Me", "I need to find a different way in.", 4);
+                    dialogue.AddSentence("Me", "This door is locked, chained shut, and the keyhole has been filled,", 5);
+                    dialogue.AddSentence("Me", "I need to find a different way in. Bolt cutters or a chainsaw would do the trick.", 4);
                     FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
                 }
                 if (lastClicked.name == "Fuse_Box_01" && !Conditions["LightOn"])
@@ -127,7 +127,7 @@ using UnityEngine.SceneManagement;
                 dialogue.AddSentence("Me", "Finally, I can see again, wow this room is disgusting.");
                 FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
-            if ((lastClicked.name == "OpReport") && Conditions["OpenedMedRack"] && Conditions["LightOn"])
+            if (lastClicked.name == "OpReport" && Conditions["OpenedMedRack"] && Conditions["LightOn"])
             {
                 Conditions["GotOpReport"] = true;
                 inventory.addItemToInventory(GameObject.Find("Clipboard"));
@@ -164,7 +164,12 @@ using UnityEngine.SceneManagement;
             clickableObj.resetLastClicked();
             dialogue.empty();
         }
-        public void objToInventory(GameObject objOnCam)
+
+    /// <summary>
+    /// Piecks up an item and shows dialogue when put down
+    /// </summary>
+    /// <param name="objOnCam">GameObject of the last clicked object, available via clickableObj</param>
+    public void objToInventory(GameObject objOnCam)
         {  
 
             if (objOnCam.name == "chainsaw")
@@ -177,14 +182,14 @@ using UnityEngine.SceneManagement;
             dialogue.AddSentence("Me", "seems to be missing it's battery though.", 4);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
-            else if (objOnCam.name == "Battery" && Conditions["CaseOpen"])
+            else if (objOnCam.name == "BatteryContainer" && Conditions["CaseOpen"])
             {
             Conditions["GotBattery"] = true;
             inventory.addItemToInventory(GameObject.Find("Battery"));
             GameObject.Find("Battery").SetActive(false);
             GameObject.Find("BatteryLight").SetActive(false);
 
-            dialogue.AddSentence("Me", "Might be useful for that electric saw over there.");
+            dialogue.AddSentence("Me", "A battery. \nIt might be useful for that electric saw over there.");
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
             else if (objOnCam.name == "fusePurple")

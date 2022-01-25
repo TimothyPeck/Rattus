@@ -3,47 +3,47 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-    public class bedroom_verification : MonoBehaviour
+public class bedroom_verification : MonoBehaviour
+{
+    public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
+    private Inventory inventory = new Inventory();
+    public Dialogue dialogue;
+
+    // Start is called before the first frame update
+    void Start()
     {
-        public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
-        private Inventory inventory = new Inventory();
-        public Dialogue dialogue;
+        GameObject sceneLight = GameObject.Find("Spot Light");
 
-        // Start is called before the first frame update
-        void Start()
+        sceneLight.GetComponent<Light>().spotAngle = 126;
+        sceneLight.GetComponent<Light>().range = 36;
+        //sceneLight.GetComponent<Light>().lightmapBakeType = LightmapBakeType.Mixed;
+        sceneLight.GetComponent<Light>().color = new Color(0xFF, 0xD2, 0x8F);
+        sceneLight.GetComponent<Light>().intensity = 0.025F;
+        sceneLight.GetComponent<Light>().shadowStrength = 1;
+        sceneLight.GetComponent<Light>().shadowBias = 0.011F;
+        sceneLight.GetComponent<Light>().shadowNormalBias = 0.4F;
+        sceneLight.GetComponent<Light>().shadowNearPlane = 0.2F;
+
+        Conditions.Add("GotKeyBed", false);
+        Conditions.Add("GotDoorknob", false); // requires keybed
+        Conditions.Add("OpenMedRack", false);
+        Conditions.Add("OpenBedside", false);
+        Conditions.Add("GotKeyBedside", false); // requires gotdoorknob
+
+        dialogue.AddSentence("Me", "I seem to have been trapped in here, I need to find a way out.", 4);
+        dialogue.AddSentence("Mysterious voice", "Hello John, as you can see I have trapped you in this small room from which you will never escape.", 6);
+        dialogue.AddSentence("Mysterious voice", "In time you will understand why I have trapped you here, but for now I shall let you rot in the prison cell.", 7);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        dialogue.empty();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        GameObject lastClicked = clickableObj.getLastClicked();
+
+        if (lastClicked != null)
         {
-            GameObject sceneLight = GameObject.Find("Spot Light");
-
-            sceneLight.GetComponent<Light>().spotAngle = 126;
-            sceneLight.GetComponent<Light>().range = 36;
-            //sceneLight.GetComponent<Light>().lightmapBakeType = LightmapBakeType.Mixed;
-            sceneLight.GetComponent<Light>().color = new Color(0xFF, 0xD2, 0x8F);
-            sceneLight.GetComponent<Light>().intensity = 0.025F;
-            sceneLight.GetComponent<Light>().shadowStrength = 1;
-            sceneLight.GetComponent<Light>().shadowBias = 0.011F;
-            sceneLight.GetComponent<Light>().shadowNormalBias = 0.4F;
-            sceneLight.GetComponent<Light>().shadowNearPlane = 0.2F;
-
-            Conditions.Add("GotKeyBed", false);
-            Conditions.Add("GotDoorknob", false); // requires keybed
-            Conditions.Add("OpenMedRack", false);
-            Conditions.Add("OpenBedside", false);
-            Conditions.Add("GotKeyBedside", false); // requires gotdoorknob
-
-            dialogue.AddSentence("Me", "I seem to have been trapped in here, I need to find a way out.", 4);
-            dialogue.AddSentence("Mysterious voice", "Hello John, as you can see I have trapped you in this small room from which you will never escape.", 6);
-            dialogue.AddSentence("Mysterious voice", "In time you will understand why I have trapped you here, but for now I shall let you rot in the prison cell.", 7);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            dialogue.empty();
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-            GameObject lastClicked = clickableObj.getLastClicked();
-
-            if (lastClicked != null)
-            {
             if (lastClicked.name == "Door" && !Conditions["GotKeyBedside"])
             {
                 dialogue.AddSentence("Me", "It's locked. \nI need to find the key.", 3);
@@ -63,7 +63,7 @@ using UnityEngine.SceneManagement;
             {
                 GameObject sceneLight = GameObject.Find("Spot Light");
 
-                if(sceneLight.GetComponent<Light>().intensity == 0)
+                if (sceneLight.GetComponent<Light>().intensity == 0)
                 {
                     sceneLight.GetComponent<Light>().intensity = 0.025F;
                 }
@@ -111,20 +111,32 @@ using UnityEngine.SceneManagement;
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
-        
-                clickableObj.resetLastClicked();
+            else if (lastClicked.name == "RABBIT" && Conditions["OpenBedside"])
+            {
+                dialogue.AddSentence("Me", "This rabbit seems oddly familiar, like a sense of déjà vu, but I have no idea where from.", 6);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
             }
-            dialogue.empty();
-        }
 
-        private void showDialogue()
-        {
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-            dialogue.empty();
+            clickableObj.resetLastClicked();
         }
+        dialogue.empty();
+    }
 
-        public void objToInventory(GameObject objOnCam)
-        {
+    /// <summary>
+    /// Function that finds the dialogue manager and calls it. Doesn't really work.
+    /// </summary>
+    private void showDialogue()
+    {
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        dialogue.empty();
+    }
+
+    /// <summary>
+    /// Piecks up an item and shows dialogue when put down
+    /// </summary>
+    /// <param name="objOnCam">GameObject of the last clicked object, available via clickableObj</param>
+    public void objToInventory(GameObject objOnCam)
+    {
         if (objOnCam.name == "pills")
         {
             inventory.addItemToInventory(GameObject.Find("Key"));
@@ -145,18 +157,13 @@ using UnityEngine.SceneManagement;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
 
         }
-        else if ( objOnCam.name == "Rusty_Key" && Conditions["OpenBedside"])
+        else if (objOnCam.name == "Rusty_Key" && Conditions["OpenBedside"])
         {
             Conditions["GotKeyBedside"] = true;
             GameObject.Find("rust_key").SetActive(false);
 
             dialogue.AddSentence("Me", "A rusty key, it must fit the door.");
             dialogue.AddSentence("Mysterious voice", "I see you have found the key, but this is just the start of the fun!\nMwahahahaha", 6);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-        } 
-        else if(objOnCam.name=="RABBIT" && Conditions["OpenBedside"])
-        {
-            dialogue.AddSentence("Me", "This rabbit seems oddly familiar, like a sens of déja vu, but I have no idea where from.", 6);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
         else
@@ -165,4 +172,4 @@ using UnityEngine.SceneManagement;
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
         }
     }
-    }
+}
