@@ -8,6 +8,7 @@ public class bedroom_verification : MonoBehaviour
     public Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
     private Inventory inventory = new Inventory();
     public Dialogue dialogue;
+    public GameObject blockerPlane;
 
     // Start is called before the first frame update
     void Start()
@@ -30,10 +31,13 @@ public class bedroom_verification : MonoBehaviour
         Conditions.Add("OpenBedside", false);
         Conditions.Add("GotKeyBedside", false); // requires gotdoorknob
 
-        dialogue.AddSentence("Me", "I seem to have been trapped in here, I need to find a way out.", 4);
-        dialogue.AddSentence("Mysterious voice", "Hello John, as you can see I have trapped you in this small room from which you will never escape.", 6);
-        dialogue.AddSentence("Mysterious voice", "In time you will understand why I have trapped you here, but for now I shall let you rot in the prison cell.", 7);
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        dialogue.AddSentence("Moi", "Aïe, qu'est-ce que j'ai mal à la tête, où suis-je ?", 4);
+        dialogue.AddSentence("Moi", "Il semble que j'ai été capturé, j'ai besoin de trouver la sortie.", 4); 
+        dialogue.AddSentence("Voix mystérieuse", "Bonjour John, comme vous pouvez le voir, je vous retiens ici dans cette petite pièce dont vous ne pourrez jamais partir.", 7);
+        dialogue.AddSentence("Voix mystérieuse", "Vous comprendrez pourquoi je vous ai enfermé ici en temps voulu, en attendant je vous laisse cogiter dans cette pièce.", 7);
+
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
+
         dialogue.empty();
     }
 
@@ -46,18 +50,18 @@ public class bedroom_verification : MonoBehaviour
         {
             if (lastClicked.name == "Door" && !Conditions["GotKeyBedside"])
             {
-                dialogue.AddSentence("Me", "It's locked. \nI need to find the key.", 3);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "C'est fermé. \nJ'ai besoin de trouvé la clé.", 3);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (lastClicked.name == "BedBedding")
             {
-                dialogue.AddSentence("Me", "There appears to be a bottle on the pillow, it seems to have something in it.");
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Il semble y avoir un tube à pilule sur l'oreillé, on dirait qu'il y a quelque chose dedans");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (lastClicked.name == "picture")
             {
-                dialogue.AddSentence("Me", "Just a derpy cat, it's not useful to my escape.");
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "C'est juste un chat, il n'est pas utile pour ma fuite");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (lastClicked.name == "Socket_03")
             {
@@ -74,13 +78,13 @@ public class bedroom_verification : MonoBehaviour
             }
             else if (lastClicked.name == "SofaPillow" || lastClicked.name == "SofaMain")
             {
-                dialogue.AddSentence("Me", "A very comfortable looking sofa, but now is not the time for relaxation.", 5);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Ce sofa semble très confortable mais ce n'est pas le moment de me reposer", 5);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if ((lastClicked.name == "MedRackKnob" || lastClicked.name == "MedRackKnobDoor_L") && !Conditions["GotKeyBed"])
             {
-                dialogue.AddSentence("Me", "Locked, there must be a key somewhere.", 3);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Fermé! Il doit y avoir une clé quelque part ", 4);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if ((lastClicked.name == "MedRackKnob" ||
                        lastClicked.name == "MedRackKnobDoor_L") &&
@@ -91,8 +95,8 @@ public class bedroom_verification : MonoBehaviour
                 Transform t = GameObject.Find("MedRackKnobDoor_L").transform;
                 t.localEulerAngles = new Vector3(-180, 90, 0);
 
-                dialogue.AddSentence("Me", "There's something in here.", 2);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Il y a quelque chose à l'intérieur", 2);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if ((lastClicked.name == "MirrorShelf_Case" ||
                       lastClicked.name == "MirrorShelf_DoorL") &&
@@ -104,8 +108,8 @@ public class bedroom_verification : MonoBehaviour
                 t.localEulerAngles = new Vector3(0, 90, 0);
                 t.localScale = new Vector3(1, 1, 1);
 
-                dialogue.AddSentence("Me", "Maybe there is something behind the rabbit?", 3);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Peut-être qu'il y a quelque chose derrière le lapin?", 4);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (lastClicked.name == "Door" && Conditions["GotKeyBedside"])
             {
@@ -113,8 +117,8 @@ public class bedroom_verification : MonoBehaviour
             }
             else if (lastClicked.name == "RABBIT" && Conditions["OpenBedside"])
             {
-                dialogue.AddSentence("Me", "This rabbit seems oddly familiar, like a sense of déjà vu, but I have no idea where from.", 6);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Ce lapin me semble familier, comme une impression de déjà vu, mais je n'arrive pas m'en souvenir.", 5);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
 
             clickableObj.resetLastClicked();
@@ -127,7 +131,9 @@ public class bedroom_verification : MonoBehaviour
     /// </summary>
     private void showDialogue()
     {
+        blockerPlane.SetActive(true);
         FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        blockerPlane.SetActive(false);
         dialogue.empty();
     }
 
@@ -143,9 +149,11 @@ public class bedroom_verification : MonoBehaviour
             Conditions["GotKeyBed"] = true;
             GameObject.Find("pillBottle").SetActive(false);
 
-            dialogue.AddSentence("Me", "This bottle contains a key", 2);
-            dialogue.AddSentence("Me", "I might be able to open something with it.", 3);
+            dialogue.AddSentence("Moi", "Ce tube contient une clé", 2);
+            dialogue.AddSentence("Moi", "Elle doit bien ouvrir quelque chose.", 3);
+            blockerPlane.SetActive(true);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            blockerPlane.SetActive(false);
         }
         else if (objOnCam.name == "knob_door" && Conditions["OpenMedRack"])
         {
@@ -153,8 +161,10 @@ public class bedroom_verification : MonoBehaviour
             inventory.addItemToInventory(GameObject.Find("door_knob"));
             GameObject.Find("door_knob").SetActive(false);
 
-            dialogue.AddSentence("Me", "This doorknob seems to fit that bedside cabinet over there.\nMaybe it contains something useful.", 6);
+            dialogue.AddSentence("Moi", "Cette poignée semble aller avec la table de nuit là-bas.\nPeut-être qu'elle contient quelque chose d'utile.", 6);
+            blockerPlane.SetActive(true);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            blockerPlane.SetActive(false);
 
         }
         else if (objOnCam.name == "Rusty_Key" && Conditions["OpenBedside"])
@@ -162,14 +172,18 @@ public class bedroom_verification : MonoBehaviour
             Conditions["GotKeyBedside"] = true;
             GameObject.Find("rust_key").SetActive(false);
 
-            dialogue.AddSentence("Me", "A rusty key, it must fit the door.");
-            dialogue.AddSentence("Mysterious voice", "I see you have found the key, but this is just the start of the fun!\nMwahahahaha", 6);
+            dialogue.AddSentence("Moi", "Une vieille clé, elle doit ouvrir la porte.");
+            dialogue.AddSentence("Voix mystérieuse", "Je voie que vous avez trouvé la clé, mais ce n'est que le début de la partie!\nMwahahahaha", 6);
+            blockerPlane.SetActive(true);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            blockerPlane.SetActive(false);
         }
         else
         {
-            dialogue.AddSentence("Me", "I don't think this is useful.", 3);
+            dialogue.AddSentence("Moi", "Je ne pense pas que ça soit utile.", 3);
+            blockerPlane.SetActive(true);
             FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            blockerPlane.SetActive(false);
         }
     }
 }

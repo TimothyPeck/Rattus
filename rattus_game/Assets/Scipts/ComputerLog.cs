@@ -10,6 +10,8 @@ public class ComputerLog : MonoBehaviour
     public GameObject wrongPassword, desktop, log;
     reception_verification recepScript;
 
+    private string passWord = "DUSTY_1924_orange";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +32,7 @@ public class ComputerLog : MonoBehaviour
 
     public void OK()
     {
-        if(password.text == "dusty_1924_Orange")
+        if(password.text == passWord)
         {
             //load l'écran de l'ordi
             desktop.SetActive(true);

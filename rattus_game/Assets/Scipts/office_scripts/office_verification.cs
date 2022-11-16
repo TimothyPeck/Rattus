@@ -12,6 +12,7 @@ namespace Rattus
         public GameObject btnEnd;
         public GameObject panEnd;
         public GameObject btnMenu;
+        public GameObject blockerPlane;
 
         // Start is called before the first frame update
         void Start()
@@ -29,33 +30,32 @@ namespace Rattus
                 if (!Conditions["ReadLetter"] && (lastClicked.name == "Board" || lastClicked.name == "PAGE" || lastClicked.name == "clipboardText"))
                 {
                     Conditions["ReadLetter"] = true;
-                    dialogue.AddSentence("Me", "A letter, with my name on it.");
-                    dialogue.AddSentence("Me", "It reads:", 2);
-                    dialogue.AddSentence("Letter", "Hello John,\nMy name is Fred Taylor,", 4);
-                    dialogue.AddSentence("Letter", "husband of Josephine Taylor.", 4);
-                    dialogue.AddSentence("Letter", "She was a patient here many years,", 5);
-                    dialogue.AddSentence("Letter", "while you were still the Chief of Medicine", 5);
-                    dialogue.AddSentence("Me", "So that's how I know those things.", 4);
-                    dialogue.AddSentence("Letter", "You greenlit a new procedure on her,", 6);
-                    dialogue.AddSentence("Letter", "you said it would help,", 4);
-                    dialogue.AddSentence("Letter", "you said there was very little risk invovled.", 7);
-                    dialogue.AddSentence("Letter", "What you never said was the name of the procedure,", 8);
-                    dialogue.AddSentence("Letter", "which I later found from one of the nurses", 6);
-                    dialogue.AddSentence("Letter", "who went throught the same ordeal as you,", 6);
-                    dialogue.AddSentence("Letter", "was that is was a transcranial lobotomy.", 6);
-                    dialogue.AddSentence("Letter", "But that wasn't the only procedure", 6);
-                    dialogue.AddSentence("Letter", "you did to her that day was it,");
-                    dialogue.AddSentence("Letter", "you also performed a hemispherectomy,", 6);
-                    dialogue.AddSentence("Letter", "against our will.", 4);
-                    dialogue.AddSentence("Letter", "So whatever was left of her after the lobotomy", 7);
-                    dialogue.AddSentence("Letter", "was removed with half of her brain.", 6);
-                    dialogue.AddSentence("Letter", "She became a \"zombie\" as they say in the films.", 7);
-                    dialogue.AddSentence("Letter", "So I contacted some people.", 5);
-                    dialogue.AddSentence("Letter", "Paid some money, and brought her back.", 6);
-                    dialogue.AddSentence("", "*Door sound*\n*footsteps*", 2);
-                    dialogue.AddSentence("Letter", "And she wants to take her revenge.", 5);
+                    dialogue.AddSentence("Moi", "Une lettre avec mon nom dessus.");
+                    dialogue.AddSentence("Moi", "Il est écrit:", 2);
+                    dialogue.AddSentence("Lettre", "Bonjour John,\nJe m'appelle Fred Taylor,", 4);
+                    dialogue.AddSentence("Lettre", "le mari Josephine Taylor.", 4);
+                    dialogue.AddSentence("Lettre", "C'était une patiente ici, il y a des années,", 5);
+                    dialogue.AddSentence("Lettre", "pendant l'époque où vous étiez le chef médecin de cet hôpital", 5);
+                    dialogue.AddSentence("Moi", "C'est donc pour ça que je connais toutes ces choses.", 4);
+                    dialogue.AddSentence("Lettre", "Vous avez accepté un nouveau type d'opération sur elle,", 6);
+                    dialogue.AddSentence("Lettre", "vous avez dit que ça aiderait,", 4);
+                    dialogue.AddSentence("Lettre", "qu'il n'y avait que quelque risque d'échecs.", 7);
+                    dialogue.AddSentence("Lettre", "Ce que vous avez omis de dire, était le nom de cette opération,", 8);
+                    dialogue.AddSentence("Lettre", "que j'ai par la suite appris par l'une des infirmières,", 6);
+                    dialogue.AddSentence("Lettre", "le nom était une lobotomie transcrânienne.", 6);
+                    dialogue.AddSentence("Lettre", "Mais ce n'était pas la seule opération que vous avez fait ce jour-là", 6);
+                    dialogue.AddSentence("Lettre", "n'est-ce pas ?");
+                    dialogue.AddSentence("Lettre", "Vous avez aussi fait une hemispherectomie,", 6);
+                    dialogue.AddSentence("Lettre", "contre notre gré.", 4);
+                    dialogue.AddSentence("Lettre", "Donc le peu qu'il restait d'elle après la lobotomie", 7);
+                    dialogue.AddSentence("Lettre", "a été retiré avec la moitié de son cerveau.", 6);
+                    dialogue.AddSentence("Lettre", "Elle est devenue un \"zombie\" comme ils disent dans les films.", 7);
+                    dialogue.AddSentence("Lettre", "Donc j'ai contacté des gens.", 5);
+                    dialogue.AddSentence("Lettre", "Payer une certaine somme, et je l'ai ramené.", 6);
+                    dialogue.AddSentence("", "*Bruit de porte*\n*Bruit de pas*", 2);
+                    dialogue.AddSentence("Lettre", "Et elle veut prendre sa revanche.", 5);
                     dialogue.AddSentence("", "...", 4);
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                     GameObject.Find("RotationAxe").SetActive(false);
                     RenderSettings.skybox.SetColor("_SkyTint", Color.black);
                     GameObject.Find("btnLeft").SetActive(false);

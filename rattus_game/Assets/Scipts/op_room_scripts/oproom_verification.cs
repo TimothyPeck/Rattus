@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
         private Dictionary<string, bool> Conditions = new Dictionary<string, bool>();
         private Inventory inventory = new Inventory();
         public Dialogue dialogue;
+        public GameObject blockerPlane;
 
         // Start is called before the first frame update
         void Start()
@@ -27,16 +28,16 @@ using UnityEngine.SceneManagement;
             Conditions.Add("LightOn", false); // requires all fuses
                                               //Conditions.Add("CanOpenDoor", false); // redundant if all others are true
 
-            dialogue.AddSentence("Mysterious voice", "You have finally entered my final challenge.", 5);
-            dialogue.AddSentence("Mysterious voice", "The operating room of horrific suffering.", 6);
-            dialogue.AddSentence("Mysterious voice", "This is where the most barbaric operations took place.", 9);
-            dialogue.AddSentence("Mysterious voice", "Just look at all those lobotomy instruments. So beautiful.", 9);
-            dialogue.AddSentence("Me", "My captor seems to think all of this is fun", 6);
-            dialogue.AddSentence("Me", "as if it's all some kind of game.", 6);
-            dialogue.AddSentence("Me", "Even if it is, I still need to escape.", 4);
-            dialogue.AddSentence("Me", "If only I had some light.", 4);
+            dialogue.AddSentence("Voix mystérieuse", "L'heure est venue du challenge final.", 5);
+            dialogue.AddSentence("Voix mystérieuse", "La salle d'opération des horreurs et de la souffrance.", 6);
+            dialogue.AddSentence("Voix mystérieuse", "C'est ici que les opérations les plus barbares ont eu lieux.", 9);
+            dialogue.AddSentence("Voix mystérieuse", "Regardez tous ces instruments de lobotomie. Magnifique.", 9);
+            dialogue.AddSentence("Moi", "Mon ravisseur pense que tout ceci est drôle", 6);
+            dialogue.AddSentence("Moi", "comme si tout ça n'était qu'un jeu.", 6);
+            dialogue.AddSentence("Moi", "Même si c'en est un, je dois toujours m'échapper.", 4);
+            dialogue.AddSentence("Moi", "Si seulement il y avait de la lumière.", 4);
         
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             dialogue.empty();
         }
 
@@ -54,11 +55,11 @@ using UnityEngine.SceneManagement;
                     Transform t = GameObject.Find("MedRackDoor_L").transform;
                     t.localEulerAngles = new Vector3(-180, 60, 0);
 
-                    dialogue.AddSentence("Me", "Finally I can get to this clipboard.", 4);
-                    dialogue.AddSentence("Mysterious voice", "Now you will understand why I put you through all this,", 10);
-                    dialogue.AddSentence("Mysterious voice", "why I had to make you suffer,", 8);
-                    dialogue.AddSentence("Mysterious voice", "why I needed to see you fear like she feared.", 10);
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    dialogue.AddSentence("Moi", "Je peux finalement atteindre ces notes.", 4);
+                    dialogue.AddSentence("Voix mystérieuse", "Vous allez enfin comprendre pourquoi je vous ai capturé,", 10);
+                    dialogue.AddSentence("Voix mystérieuse", "pourquoi vous avez dû souffrir,", 8);
+                    dialogue.AddSentence("Voix mystérieuse", "pourquoi j'ai eu besoin de vous voir apeuré comme ELLE l'était.", 10);
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                 }
                 else if ((lastClicked.name == "CaseMetallic" || lastClicked.name == "Case_Door_R") && !Conditions["CaseOpen"])
                 {
@@ -66,15 +67,15 @@ using UnityEngine.SceneManagement;
                     Transform t = GameObject.Find("Case_Door_R").transform;
                     t.localEulerAngles = new Vector3(0, -120, 0);
 
-                    dialogue.AddSentence("Me", "Something is flashing in there", 2);
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    dialogue.AddSentence("Moi", "Quelque chose clignote à l'intérieur", 2);
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                 }
                 else if (Conditions["GotBattery"] && Conditions["GotSaw"] && !Conditions["ChargedSaw"])
                 {
                     Conditions["ChargedSaw"] = true;
 
-                    dialogue.AddSentence("Me", "Now I can open the cabinet.", 3);
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    dialogue.AddSentence("Moi", "Maintenant, je peux ouvrir cette armoire.", 3);
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                 }
                 else  if (Conditions["GotOpReport"] && (lastClicked.name.Contains("DoorD_V2")))
                 {
@@ -82,19 +83,20 @@ using UnityEngine.SceneManagement;
                 }
                 else if(!Conditions["GotOpReport"] && (lastClicked.name.Contains("DoorD_V2")))
                 {
-                dialogue.AddSentence("Me", "I need to find out why I am here.", 4);
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Je dois découvrir ce que mon ravisseur attend de moi.", 4);
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                 }            
                 else if(lastClicked.name == "MedRack" && !Conditions["ChargedSaw"])
                 {
-                    dialogue.AddSentence("Me", "This door is locked, chained shut, and the keyhole has been filled,", 5);
-                    dialogue.AddSentence("Me", "I need to find a different way in. Bolt cutters or a chainsaw would do the trick.", 4);
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    dialogue.AddSentence("Moi", "Il y a une chaine qui ferme la porte et il n'y a pas de serrure,", 5);
+                    dialogue.AddSentence("Moi", "J'ai besoin de casser cette chaîne, une scie électrique ferais l'affaire.", 4);
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                 }
                 if (lastClicked.name == "Fuse_Box_01" && !Conditions["LightOn"])
                 {
-                    dialogue.AddSentence("Me", "The fuses seem to be missing, maybe I should find new ones");
-                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                    dialogue.AddSentence("Moi", "Il manque les fusibles, ils doivent être quelque part ici");
+                    dialogue.AddSentence("Moi", "Il y a 3 emplacements vides");
+                    FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
                 }
             if (lastClicked.name == "Fuse_Box_01")
             {
@@ -124,8 +126,8 @@ using UnityEngine.SceneManagement;
                 Conditions["LightOn"] = true;
                 GameObject.Find("RoomLight").GetComponent<Light>().intensity = 3;
 
-                dialogue.AddSentence("Me", "Finally, I can see again, wow this room is disgusting.");
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Et la lumière fut ! Wow cette pièce est immonde.");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             if (lastClicked.name == "OpReport" && Conditions["OpenedMedRack"] && Conditions["LightOn"])
             {
@@ -133,32 +135,33 @@ using UnityEngine.SceneManagement;
                 inventory.addItemToInventory(GameObject.Find("Clipboard"));
                 GameObject.Find("Clipboard").SetActive(false);
 
-                dialogue.AddSentence("Me", "It's an operation report for a Josephine Taylor.", 6);
-                dialogue.AddSentence("Me", "Date of birth: 21/06/1953", 6);
-                dialogue.AddSentence("Mysterious voice", "She was everything to me.", 3);
-                dialogue.AddSentence("Me", "The operation is noted as being a Hemispherectomy.", 6);
-                dialogue.AddSentence("Me", "removal of one half of the brain to reduce seizures.", 6);
-                dialogue.AddSentence("Me", "Wait, why do I know that?", 3);
-                dialogue.AddSentence("Mysterious voice", "She was never the same after,", 7);
-                dialogue.AddSentence("Mysterious voice", "it was as if she was turned into a mere statue of her former self", 7);
-                dialogue.AddSentence("Me", "The doctor says the operation was a success,", 6);
-                dialogue.AddSentence("Me", "with no noted incidents prior to or during the procedure.", 6);
-                dialogue.AddSentence("Me", "But he did note that it took twice as long as usual", 4);
-                dialogue.AddSentence("Me", "due to a lack of staff.", 4);
-                dialogue.AddSentence("Mysterious voice", "You see John, you let the doctors run loose in your hospital,", 6);
-                dialogue.AddSentence("Mysterious voice", "ruining lives and separating families.", 6);
-                dialogue.AddSentence("Mysterious voice", "She wasn't just a guinea pig for your medical experimentation,", 8);
-                dialogue.AddSentence("Mysterious voice", "she was my Josie, and you will pay for what you did.", 8);
-                dialogue.AddSentence("Me", "So he must Josephine's husband,", 6);
-                dialogue.AddSentence("Me", "he seems to have it out for me, I should go looking for him.", 6);
+                dialogue.AddSentence("Moi", "C'est un rapport d'opération, d'une certaine Joséphine Taylor.", 7);
+                dialogue.AddSentence("Moi", "Date de naissance: 21/06/1953", 7);
+                dialogue.AddSentence("Voix mystérieuse", "Elle était tout pour moi.", 6);
+                dialogue.AddSentence("Moi", "L'opàration était une Hémisphérectomie.", 7);
+                dialogue.AddSentence("Moi", "C'est une opération qui consiste a enlevé ou déconnecté une moitié du cerveau.", 7);
+                dialogue.AddSentence("Moi", "Elle est souvent pratiquée pour traiter le syndrome de Rasmussen ou alléger les crise d'épilepsie.", 8);
+                dialogue.AddSentence("Moi", "Attends, comment je sais tout ça moi?", 4);
+                dialogue.AddSentence("Voix mystérieuse", "Elle n'a plus jamais été pareil,", 5);
+                dialogue.AddSentence("Voix mystérieuse", "elle n'était plus que l'ombre d'elle-même", 5);
+                dialogue.AddSentence("Moi", "Le docteur a écrit que l'opération était un succès,", 6);
+                dialogue.AddSentence("Moi", "aucune note d'une quelconque complication.", 6);
+                dialogue.AddSentence("Moi", "Par contre, il a spécifié que ça lui a pris 2 fois plus de temps que d'habitude,", 4);
+                dialogue.AddSentence("Moi", "à cause d'un manque de personnel.", 4);
+                dialogue.AddSentence("Voix mystérieuse", "Vous voyez John, vous avez laissé vos docteurs se déchaîner dans ton hopital,", 6);
+                dialogue.AddSentence("Voix mystérieuse", "détruire des vies et des familles.", 6);
+                dialogue.AddSentence("Voix mystérieuse", "Elle n'était pas juste un simple cobaye pour vos expérimentations,", 8);
+                dialogue.AddSentence("Voix mystérieuse", "c'était MA Joséphine, vous allez payer pour ce que vous avez fait.", 8);
+                dialogue.AddSentence("Moi", "Mon ravisseur est donc le mari de Joséphine,", 6);
+                dialogue.AddSentence("Moi", "Il semble m'en vouloir pour ce qui est arrivé à sa femme dans cet hôpital.", 6);
                 dialogue.AddSentence("Mr. Taylor", "...", 2);
-                dialogue.AddSentence("Mr. Taylor", "You'll find me soon enough, see you later John");
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Mr. Taylor", "Nous nous rencontrerons bientôt John");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if ((lastClicked.name == "OpReport") && Conditions["OpenedMedRack"] && !Conditions["LightOn"])
             {
-                dialogue.AddSentence("Me", "It's too dark, I can't read");
-                FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+                dialogue.AddSentence("Moi", "Il fait trop sombre, je n'arrive pas à lire");
+                FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
         }
             clickableObj.resetLastClicked();
@@ -178,9 +181,9 @@ using UnityEngine.SceneManagement;
             inventory.addItemToInventory(GameObject.Find("Chainsaw01"));
             GameObject.Find("Chainsaw01").SetActive(false);
 
-            dialogue.AddSentence("Me", "Might be useful somewhere,", 4);
-            dialogue.AddSentence("Me", "seems to be missing it's battery though.", 4);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.AddSentence("Moi", "Elle sera sûrement utile,", 4);
+            dialogue.AddSentence("Moi", "elle est déchargée, il faut que je trouve une batterie.", 4);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (objOnCam.name == "BatteryContainer" && Conditions["CaseOpen"])
             {
@@ -189,8 +192,8 @@ using UnityEngine.SceneManagement;
             GameObject.Find("Battery").SetActive(false);
             GameObject.Find("BatteryLight").SetActive(false);
 
-            dialogue.AddSentence("Me", "A battery. \nIt might be useful for that electric saw over there.");
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.AddSentence("Moi", "Une batterie. \nElle a l'air de rentrée dans la scie électrique là-bas.");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (objOnCam.name == "fusePurple")
             {
@@ -198,8 +201,8 @@ using UnityEngine.SceneManagement;
             inventory.addItemToInventory(GameObject.Find("fuseTable"));
             GameObject.Find("fuseTable").SetActive(false);
 
-            dialogue.AddSentence("Me", "I may be able to see again thanks to this.", 3);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.AddSentence("Moi", "Il me servira pour la lumière.", 3);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (objOnCam.name == "fuseRed")
             {
@@ -207,8 +210,8 @@ using UnityEngine.SceneManagement;
             inventory.addItemToInventory(GameObject.Find("fuseFloor"));
             GameObject.Find("fuseFloor").SetActive(false);
 
-            dialogue.AddSentence("Me", "This might come in handy.", 2);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.AddSentence("Moi", "La taille parfaite.", 2);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
             else if (objOnCam.name == "fuseYellow")
             {
@@ -216,13 +219,13 @@ using UnityEngine.SceneManagement;
             inventory.addItemToInventory(GameObject.Find("fusecontainer"));
             GameObject.Find("fusecontainer").SetActive(false);
 
-            dialogue.AddSentence("Me", "This might be useful.", 2);
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.AddSentence("Moi", "C'est sûrement utile", 2);
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
         else
             {
-            dialogue.AddSentence("Me", "I don't think this is usefull to take it");
-            FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+            dialogue.AddSentence("Moi", "Je ne penses pas que ça me servira");
+            FindObjectOfType<DialogueManager>().StartDialogue(dialogue, blockerPlane);
             }
 
         }

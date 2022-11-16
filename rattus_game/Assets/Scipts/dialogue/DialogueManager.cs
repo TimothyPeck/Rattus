@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> dialogues;
     private Queue<string> diag_names;
     private Queue<int> diag_times;
+    private GameObject blocker;
 
 
     // Start is called before the first frame update
@@ -27,9 +28,12 @@ public class DialogueManager : MonoBehaviour
     /// Extracts the dialogue names, texts, and times from the dialogue object into it's own queues, then calls DisplayDialogue()
     /// </summary>
     /// <param name="dialogue"></param>
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, GameObject blocker = null)
     {
         animator.SetBool("IsOpen", true);
+        this.blocker = blocker;
+        if(this.blocker != null)
+            this.blocker.SetActive(true);
         
         string[] names = dialogue.names.ToArray();
         string[] sentences = dialogue.sentences.ToArray();
@@ -108,5 +112,7 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+        if (this.blocker != null)
+            this.blocker.SetActive(false);
     }
 }
